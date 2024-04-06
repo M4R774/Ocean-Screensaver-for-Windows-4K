@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://boe8ac3tehi3n"]
+[gd_scene load_steps=6 format=3 uid="uid://boe8ac3tehi3n"]
 
 [ext_resource type="Script" path="res://menus/highscores/reset.gd" id="1_l3e71"]
 [ext_resource type="Theme" uid="uid://c2axe1dqtbw74" path="res://menus/theme.tres" id="2_pq6lo"]
 [ext_resource type="Script" path="res://menus/main_menu/to_gameplay.gd" id="3_d5uk5"]
-[ext_resource type="PackedScene" uid="uid://bxat161gi2b7e" path="res://levels/gameplay/gameplay.tscn" id="4_wa0ik"]
 [ext_resource type="Script" path="res://menus/highscores/to_highscores.gd" id="5_iscxr"]
-[ext_resource type="PackedScene" uid="uid://b74de4n7g0wnw" path="res://menus/highscores/highscores.tscn" id="6_mtaar"]
 [ext_resource type="Script" path="res://menus/main_menu/volume_slider.gd" id="7_lrcc6"]
 
 [node name="Main menu" type="Control"]
