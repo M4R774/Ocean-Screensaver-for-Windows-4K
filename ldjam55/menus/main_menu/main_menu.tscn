@@ -34,7 +34,7 @@ theme_override_constants/separation = 50
 layout_mode = 2
 theme = ExtResource("2_pq6lo")
 theme_override_font_sizes/font_size = 32
-text = "Highscore demo project"
+text = "Game jam template"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
