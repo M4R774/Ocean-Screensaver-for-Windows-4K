@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfyqkehw7mw0v"]
 
-[ext_resource type="Script" path="res://entities/placeholder_ukkeli/hahmo.gd" id="1_ia1f3"]
+[ext_resource type="Script" path="res://entities/kala_1/kala_1.gd" id="1_ia1f3"]
 [ext_resource type="Texture2D" uid="uid://bulq74qfud5ow" path="res://entities/icon.svg" id="2_lj2do"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63ulj"]
@@ -9,6 +9,7 @@
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_ia1f3")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_63ulj")

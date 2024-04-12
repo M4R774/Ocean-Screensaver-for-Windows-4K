@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://1gm3lfx1w5rc"]
+[gd_scene load_steps=4 format=3 uid="uid://1gm3lfx1w5rc"]
 
-[ext_resource type="PackedScene" uid="uid://cfyqkehw7mw0v" path="res://entities/placeholder_ukkeli/place_holder_ukkeli.tscn" id="1_hetrc"]
+[ext_resource type="Script" path="res://entities/kala_1/kala_1.gd" id="1_yxjxb"]
+[ext_resource type="Texture2D" uid="uid://bulq74qfud5ow" path="res://entities/icon.svg" id="2_ksqks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63ulj"]
 
 [node name="AleksinHiekkalaatikko" type="Node2D"]
 
-[node name="PlaceHolderUkkeli" parent="." instance=ExtResource("1_hetrc")]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(601, 305)
+script = ExtResource("1_yxjxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_63ulj")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_ksqks")
