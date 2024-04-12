@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1gm3lfx1w5rc"]
+
+[ext_resource type="PackedScene" uid="uid://cfyqkehw7mw0v" path="res://entities/placeholder_ukkeli/place_holder_ukkeli.tscn" id="1_hetrc"]
+
+[node name="AleksinHiekkalaatikko" type="Node2D"]
+
+[node name="PlaceHolderUkkeli" parent="." instance=ExtResource("1_hetrc")]
