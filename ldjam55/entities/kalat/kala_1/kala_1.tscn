@@ -61,5 +61,7 @@ script = ExtResource("1_ia1f3")
 shape = SubResource("RectangleShape2D_63ulj")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_de5ah")
+autoplay = "default"
 frame_progress = 0.806082
