@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxat161gi2b7e"]
+[gd_scene load_steps=12 format=3 uid="uid://bxat161gi2b7e"]
 
 [ext_resource type="Script" path="res://levels/gameplay/camera.gd" id="1_vqujo"]
+[ext_resource type="Texture2D" uid="uid://cdti3sds7xbht" path="res://levels/gameplay/water.png" id="2_2y8oe"]
 [ext_resource type="Texture2D" uid="uid://chtcct5c6fhde" path="res://levels/gameplay/bg1.png" id="2_fjhtv"]
 [ext_resource type="Texture2D" uid="uid://dtdqlgv5211l4" path="res://levels/gameplay/bg2.png" id="3_pnris"]
 [ext_resource type="Texture2D" uid="uid://8jxdjawc07r3" path="res://levels/gameplay/bg3.png" id="4_1a32c"]
 [ext_resource type="Texture2D" uid="uid://c4dgyqqcnjkqa" path="res://levels/gameplay/bg4.png" id="5_1qhbu"]
+[ext_resource type="Texture2D" uid="uid://b3io7xw6kry3t" path="res://levels/gameplay/light1.png" id="6_84glr"]
+[ext_resource type="Texture2D" uid="uid://bkxwdv31lcqbb" path="res://levels/gameplay/light2.png" id="7_xgfha"]
+[ext_resource type="Texture2D" uid="uid://o3vsqnu2g5fp" path="res://levels/gameplay/light3.png" id="8_cg387"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_seppo"]
 animations = [{
@@ -26,18 +30,47 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_csmr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_84glr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xgfha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cg387")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="Root" type="Node"]
+
+[node name="bluewaters" type="Sprite2D" parent="."]
+scale = Vector2(1, 2)
+texture = ExtResource("2_2y8oe")
+centered = false
+
+[node name="seafloor1" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1369)
+sprite_frames = SubResource("SpriteFrames_seppo")
+animation = &"greening"
+frame = 3
+centered = false
+
+[node name="sunlight" type="AnimatedSprite2D" parent="seafloor1"]
+position = Vector2(0, -1369)
+sprite_frames = SubResource("SpriteFrames_csmr2")
+frame_progress = 0.285419
+centered = false
 
 [node name="Camera" type="Node2D" parent="."]
 script = ExtResource("1_vqujo")
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
-position = Vector2(506, 323)
-
-[node name="seafloor1" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1141, 277)
-scale = Vector2(0.907119, 0.716091)
-sprite_frames = SubResource("SpriteFrames_seppo")
-animation = &"greening"
-frame = 3
-centered = false
+anchor_mode = 0
+zoom = Vector2(1.25, 1.25)
+position_smoothing_speed = 1.0
