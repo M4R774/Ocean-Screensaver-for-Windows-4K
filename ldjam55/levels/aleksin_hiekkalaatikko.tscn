@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv4hnfk8ahqo7"]
+
+[ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_yxjxb"]
+[ext_resource type="Texture2D" uid="uid://bm7h1rjb0o631" path="res://entities/kalat/kala_1/placeholder_fish.jpg" id="2_ga3p3"]
+[ext_resource type="PackedScene" uid="uid://b53nn42vcf8ma" path="res://entities/food/food.tscn" id="3_sn8rn"]
+[ext_resource type="Script" path="res://entities/food/food_spawner.gd" id="4_ui44u"]
+[ext_resource type="Script" path="res://menus/HUD/buy_menu.gd" id="5_nv3kg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63ulj"]
+size = Vector2(72, 44)
+
+[node name="AleksinHiekkalaatikko" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fish" type="CharacterBody2D" parent="."]
+position = Vector2(601, 305)
+script = ExtResource("1_yxjxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
+shape = SubResource("RectangleShape2D_63ulj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fish"]
+scale = Vector2(0.0981735, 0.0981735)
+texture = ExtResource("2_ga3p3")
+
+[node name="ManualFoodSpawner" type="Node" parent="."]
+
+[node name="Food" parent="." instance=ExtResource("3_sn8rn")]
+
+[node name="FoodSpawner" type="Node2D" parent="."]
+script = ExtResource("4_ui44u")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -11.5
+offset_right = 95.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+script = ExtResource("5_nv3kg")
+
+[node name="Feed" type="Label" parent="HUD/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Press F to summon Food"
+horizontal_alignment = 1
+vertical_alignment = 1
