@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var MANAGER: GAME_MANAGER
 
-var speed = 100
+var speed = 50
 var screen_size = Vector2(0, 0)
 
 

@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 var MANAGER: GAME_MANAGER
 
-var speed = 400
+var speed = 100
 var wandering_target: Vector2 = Vector2(0, 0)
 var food_target: Node2D
 var screen_size = Vector2(0, 0)
-var hunger = 0
+var hunger = 20
 var hunger_timer: Timer
 
 
@@ -33,7 +33,7 @@ func _on_timer_timeout() -> void:
 
 
 func increase_hunger():
-	hunger += 2
+	hunger += 5
 	if hunger > 30 and food_target == null:
 		food_target = MANAGER.get_closest_food(self)
 	if hunger > 100:
@@ -49,7 +49,7 @@ func _physics_process(_delta):
 			hunger -= 40
 			MANAGER.add_money(1)
 			return
-		velocity = (food_target.position - position).normalized() * speed
+		velocity = (food_target.position - position).normalized() * speed * 3
 		move_and_slide()
 		return
 
