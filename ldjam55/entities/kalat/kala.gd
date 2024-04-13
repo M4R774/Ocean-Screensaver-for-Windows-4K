@@ -2,22 +2,49 @@ extends CharacterBody2D
 
 var MANAGER: GAME_MANAGER
 
-var speed = 100
+var speed = 50
 var wandering_target: Vector2 = Vector2(0, 0)
 var food_target: Node2D
 var screen_size = Vector2(0, 0)
 var hunger = 20
 var max_hunger = 200
 var hunger_timer: Timer
-
+var animated_sprite: AnimatedSprite2D
 
 func _ready():
+	animated_sprite = get_node("AnimatedSprite")
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
 	MANAGER.add_fish(self)
 	screen_size = get_viewport_rect().size
 	position = screen_size / 2
 	wandering_target = Vector2(randi() % int(screen_size.x), randi() % int(screen_size.y))
 	add_timer_for_hunger()
+
+
+func _physics_process(_delta):
+	if velocity.x < 0:
+		animated_sprite.flip_h = true
+	else:
+		animated_sprite.flip_h = false
+
+	# Hunting for food
+	if food_target != null:
+		if position.distance_to(food_target.position) < 30:
+			food_target.remove()
+			food_target = null
+			hunger -= 40
+			MANAGER.add_nutrients(1)
+			return
+		velocity = (food_target.position - position).normalized() * speed * 3
+		move_and_slide()
+		return
+
+	# Wandering
+	if position.distance_to(wandering_target) < 10:
+		wandering_target = Vector2(randi() % int(screen_size.x), randi() % int(screen_size.y))
+	velocity = (wandering_target - position).normalized() * speed
+
+	move_and_slide()
 
 
 func add_timer_for_hunger():
@@ -40,26 +67,6 @@ func increase_hunger():
 		food_target = MANAGER.get_closest_food(self)
 	if hunger > 100:
 		hunger = 100
-
-
-func _physics_process(_delta):
-	# Hunting for food
-	if food_target != null:
-		if position.distance_to(food_target.position) < 50:
-			food_target.remove()
-			food_target = null
-			hunger -= 40
-			MANAGER.add_nutrients(1)
-			return
-		velocity = (food_target.position - position).normalized() * speed * 3
-		move_and_slide()
-		return
-
-	# Wandering
-	if position.distance_to(wandering_target) < 10:
-		wandering_target = Vector2(randi() % int(screen_size.x), randi() % int(screen_size.y))
-	velocity = (wandering_target - position).normalized() * speed
-	move_and_slide()
 
 
 func eat():

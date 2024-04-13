@@ -52,7 +52,7 @@ animations = [{
 "speed": 22.0
 }]
 
-[node name="PlaceHolderUkkeli" type="Node2D"]
+[node name="kala_1" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_ia1f3")
@@ -60,8 +60,8 @@ script = ExtResource("1_ia1f3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_63ulj")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_de5ah")
 autoplay = "default"
 frame_progress = 0.806082

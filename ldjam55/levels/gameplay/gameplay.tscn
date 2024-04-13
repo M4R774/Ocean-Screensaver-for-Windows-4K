@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxat161gi2b7e"]
+[gd_scene load_steps=16 format=3 uid="uid://bxat161gi2b7e"]
 
 [ext_resource type="Script" path="res://levels/gameplay/camera.gd" id="1_vqujo"]
 [ext_resource type="Texture2D" uid="uid://cdti3sds7xbht" path="res://levels/gameplay/water.png" id="2_2y8oe"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b3io7xw6kry3t" path="res://levels/gameplay/light1.png" id="6_84glr"]
 [ext_resource type="Texture2D" uid="uid://bkxwdv31lcqbb" path="res://levels/gameplay/light2.png" id="7_xgfha"]
 [ext_resource type="Texture2D" uid="uid://o3vsqnu2g5fp" path="res://levels/gameplay/light3.png" id="8_cg387"]
+[ext_resource type="PackedScene" uid="uid://b53nn42vcf8ma" path="res://entities/food/food.tscn" id="10_h71wg"]
+[ext_resource type="Script" path="res://entities/food/food_spawner.gd" id="11_thwep"]
+[ext_resource type="PackedScene" uid="uid://cfyqkehw7mw0v" path="res://entities/kalat/kala_1/kala_1.tscn" id="11_yyui5"]
+[ext_resource type="Script" path="res://menus/HUD/buy_menu.gd" id="12_dvtr1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_seppo"]
 animations = [{
@@ -49,28 +53,80 @@ animations = [{
 
 [node name="Root" type="Node"]
 
-[node name="bluewaters" type="Sprite2D" parent="."]
+[node name="background" type="Node2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[node name="bluewaters" type="Sprite2D" parent="background"]
 scale = Vector2(1, 2)
 texture = ExtResource("2_2y8oe")
 centered = false
 
-[node name="seafloor1" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1369)
+[node name="seafloor1" type="AnimatedSprite2D" parent="background"]
+position = Vector2(0, 1100)
 sprite_frames = SubResource("SpriteFrames_seppo")
 animation = &"greening"
 frame = 3
 centered = false
 
-[node name="sunlight" type="AnimatedSprite2D" parent="seafloor1"]
-position = Vector2(0, -1369)
+[node name="sunlight" type="AnimatedSprite2D" parent="background/seafloor1"]
+position = Vector2(0, -1080)
 sprite_frames = SubResource("SpriteFrames_csmr2")
 frame_progress = 0.285419
 centered = false
 
-[node name="Camera" type="Node2D" parent="."]
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_vqujo")
 
-[node name="Camera2D" type="Camera2D" parent="Camera"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -11.5
+offset_right = 95.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+script = ExtResource("12_dvtr1")
+
+[node name="Feed" type="Label" parent="HUD/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "Press F to summon Food"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="HUD"]
 anchor_mode = 0
-zoom = Vector2(1.25, 1.25)
 position_smoothing_speed = 1.0
+
+[node name="AleksinHiekkalaatikko" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManualFoodSpawner" type="Node" parent="AleksinHiekkalaatikko"]
+
+[node name="Food" parent="AleksinHiekkalaatikko" instance=ExtResource("10_h71wg")]
+
+[node name="FoodSpawner" type="Node2D" parent="AleksinHiekkalaatikko"]
+script = ExtResource("11_thwep")
+
+[node name="kala" parent="." instance=ExtResource("11_yyui5")]

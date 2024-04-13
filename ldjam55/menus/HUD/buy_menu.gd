@@ -3,7 +3,7 @@ extends VBoxContainer
 var MANAGER: GAME_MANAGER
 
 var screen_size = Vector2(0, 0)
-var speed = 0.4
+var speed = 10
 var direction = Vector2(1, 1)
 
 func _ready():

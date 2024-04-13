@@ -1,8 +1,8 @@
-extends Node2D
-var max_offset_x = 1500
-var max_offset_y = 400
-var movement_x = 100
-var movement_y = 50
+extends Control
+var max_offset_x = 275
+var max_offset_y = 55
+var movement_x = 10
+var movement_y = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +17,4 @@ func _process(delta):
 	if position.y > max_offset_y or position.y < 0:
 		movement_y *= -1
 
-	position += Vector2(movement_x * delta, cos(position.x / max_offset_x * PI) * movement_y  * delta)
-
-	
+	position += Vector2(movement_x * delta, movement_y  * delta)
