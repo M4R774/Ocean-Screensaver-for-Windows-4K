@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b53nn42vcf8ma"]
+
+[ext_resource type="Script" path="res://entities/food/manual_food.gd" id="1_ugwm3"]
+[ext_resource type="Texture2D" uid="uid://bacj7dw6phtt8" path="res://entities/food/hot_dog.jpg" id="2_umyuw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8wyl"]
+
+[node name="Food" type="StaticBody2D"]
+position = Vector2(276.04, 2.08165e-12)
+script = ExtResource("1_ugwm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u8wyl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_umyuw")

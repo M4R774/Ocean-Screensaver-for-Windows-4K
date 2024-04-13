@@ -25,6 +25,7 @@ buses/default_bus_layout="res://globals/audio_bus.tres"
 HIGHSCORE_SINGLETON="*res://globals/highscore_singleton.gd"
 SECRETS="res://globals/secrets.gd"
 EXAMPLE_SECRETS="res://globals/example.secrets.gd"
+ENTITIES_LIST_SINGLETON="*res://globals/entities_list_singleton.gd"
 
 [display]
 
@@ -54,6 +55,11 @@ up={
 down={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"echo":false,"script":null)
+]
+}
+feed={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"echo":false,"script":null)
 ]
 }
 
