@@ -59,3 +59,10 @@ func get_closest_food(fish):
 			closest_distance = distance
 			closest_food = f
 	return closest_food
+
+
+func if_any_fish_is_hungry():
+	for fish in FISHES:
+		if fish.hunger >= 100:
+			return true
+	return false
