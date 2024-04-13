@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm7h1rjb0o631"
-path="res://.godot/imported/placeholder_fish.jpg-b9326333b4f1de1c1162f0da19bd859c.ctex"
+uid="uid://nd0g0f8gos17"
+path="res://.godot/imported/placeholder_fish.jpg-24f788955f2ab47395c76a3c36c48e45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/kala_1/placeholder_fish.jpg"
-dest_files=["res://.godot/imported/placeholder_fish.jpg-b9326333b4f1de1c1162f0da19bd859c.ctex"]
+source_file="res://entities/kalat/kala_2/placeholder_fish.jpg"
+dest_files=["res://.godot/imported/placeholder_fish.jpg-24f788955f2ab47395c76a3c36c48e45.ctex"]
 
 [params]
 

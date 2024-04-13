@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfyqkehw7mw0v"]
+[gd_scene load_steps=4 format=3 uid="uid://b8t5kc3rc060n"]
 
-[ext_resource type="Script" path="res://entities/kala_1/kala_1.gd" id="1_ia1f3"]
-[ext_resource type="Texture2D" uid="uid://bulq74qfud5ow" path="res://entities/icon.svg" id="2_lj2do"]
+[ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_u4h85"]
+[ext_resource type="Texture2D" uid="uid://bulq74qfud5ow" path="res://entities/icon.svg" id="2_1knei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63ulj"]
 
 [node name="PlaceHolderUkkeli" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_ia1f3")
+script = ExtResource("1_u4h85")
 speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_63ulj")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_lj2do")
+texture = ExtResource("2_1knei")

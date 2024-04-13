@@ -33,7 +33,7 @@ func _on_timer_timeout() -> void:
 
 
 func increase_hunger():
-	hunger += 5
+	hunger += 10
 	if hunger > 30 and food_target == null:
 		food_target = MANAGER.get_closest_food(self)
 	if hunger > 100:

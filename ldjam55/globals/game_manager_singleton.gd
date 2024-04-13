@@ -2,6 +2,22 @@ extends Node
 
 class_name GAME_MANAGER
 
+# Kala_1: 10 €;
+var kala_1: PackedScene = preload("res://entities/kalat/kala_1/kala_1.tscn")
+#var kasvi_1: PackedScene = preload("res://entities/kasvi_1/kasvi_1.tscn")
+var kala_2: PackedScene = preload("res://entities/kalat/kala_2/kala_2.tscn")
+#var kasvi_2: PackedScene = preload("res://entities/kasvi_2/kasvi_2.tscn")
+var kala_3: PackedScene = preload("res://entities/kalat/kala_3/kala_3.tscn")
+#var kasvi_3: PackedScene = preload("res://entities/kasvi_3/kasvi_3.tscn")
+var ITEMS_TO_BUY = [
+	{"name": "Fish", "price": 3, "scene": kala_1, "available": true},
+	#{"name": "Plant", "price": 10, "scene": kasvi_1, "available": true},
+	{"name": "Fish", "price": 4, "scene": kala_2, "available": true},
+	#{"name": "Plant", "price": 20, "scene": kasvi_2, "available": true},
+	{"name": "Fish", "price": 5, "scene": kala_3, "available": true},
+	#{"name": "Plant", "price": 30, "scene": kasvi_3, "available": true}
+]
+
 var FISHES = []
 var FOOD = []
 var MONEY = 0
