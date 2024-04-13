@@ -16,7 +16,7 @@ func _ready():
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
 	MANAGER.add_fish(self)
 	screen_size = get_viewport_rect().size
-	position = screen_size / 2
+	global_position = screen_size / 2
 	wandering_target = Vector2(randi() % int(screen_size.x), randi() % int(screen_size.y))
 	add_timer_for_hunger()
 
@@ -29,20 +29,20 @@ func _physics_process(_delta):
 
 	# Hunting for food
 	if food_target != null:
-		if position.distance_to(food_target.position) < 30:
+		if global_position.distance_to(food_target.global_position) < 30:
 			food_target.remove()
 			food_target = null
 			hunger -= 40
 			MANAGER.add_nutrients(1)
 			return
-		velocity = (food_target.position - position).normalized() * speed * 3
+		velocity = (food_target.global_position - global_position).normalized() * speed * 3
 		move_and_slide()
 		return
 
 	# Wandering
-	if position.distance_to(wandering_target) < 10:
+	if global_position.distance_to(wandering_target) < 10:
 		wandering_target = Vector2(randi() % int(screen_size.x), randi() % int(screen_size.y))
-	velocity = (wandering_target - position).normalized() * speed
+	velocity = (wandering_target - global_position).normalized() * speed
 
 	move_and_slide()
 

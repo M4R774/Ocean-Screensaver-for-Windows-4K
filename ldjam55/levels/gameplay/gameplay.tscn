@@ -75,6 +75,7 @@ frame_progress = 0.285419
 centered = false
 
 [node name="HUD" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,6 +115,9 @@ vertical_alignment = 1
 anchor_mode = 0
 position_smoothing_speed = 1.0
 
+[node name="FoodSpawner" type="Node2D" parent="HUD"]
+script = ExtResource("11_thwep")
+
 [node name="AleksinHiekkalaatikko" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -125,8 +129,5 @@ grow_vertical = 2
 [node name="ManualFoodSpawner" type="Node" parent="AleksinHiekkalaatikko"]
 
 [node name="Food" parent="AleksinHiekkalaatikko" instance=ExtResource("10_h71wg")]
-
-[node name="FoodSpawner" type="Node2D" parent="AleksinHiekkalaatikko"]
-script = ExtResource("11_thwep")
 
 [node name="kala" parent="." instance=ExtResource("11_yyui5")]

@@ -5,10 +5,6 @@ extends Node2D
 var screen_size = Vector2(0, 0)
 
 
-func _ready():
-	screen_size = get_viewport_rect().size
-
-
 func _process(_delta):
 	if Input.is_action_just_pressed("feed"):
 		spawn_food()
@@ -17,5 +13,5 @@ func _process(_delta):
 func spawn_food():
 	screen_size = get_viewport_rect().size
 	var food = food_prefab.instantiate()
-	food.position = Vector2(randi() % int(screen_size.x), 0)
-	add_child(food)
+	food.position = Vector2(randi() % int(screen_size.x) + global_position.x, 0)
+	get_node("/root").add_child(food)

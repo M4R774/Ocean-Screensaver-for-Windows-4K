@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(delta):
-	position.y += speed * delta
+	global_position.y += speed * delta
 	if position.y > screen_size.y:
 		remove()
 

@@ -34,13 +34,13 @@ func _process(delta):
 
 	# Bounce off the screen edges
 	if position.x >= screen_size.x - size.x:
-		direction.x *= -1
+		direction.x = abs(direction.x)*-1
 	if position.y >= screen_size.y - size.y:
-		direction.y *= -1
+		direction.y = abs(direction.y)*-1
 	if position.x <= 0:
-		direction.x *= -1
+		direction.x = abs(direction.x)
 	if position.y <= 0:
-		direction.y *= -1
+		direction.y = abs(direction.y)
 	position += direction * speed * delta
 
 	handle_input()
@@ -92,8 +92,15 @@ func update_HUD():
 
 
 func handle_buying_fish():
-	# TODO
-	pass
+	for fish in MANAGER.FISH_TO_BUY:
+		if fish["available"]:
+			if fish["price"] <= MANAGER.MANA:
+				MANAGER.add_mana(-fish["price"])
+				fish["available"] = false
+				var new_fish = fish["scene"].instantiate()
+				screen_size = get_viewport_rect().size
+				get_node("/root").add_child(new_fish)
+			break
 
 
 func handle_buying_plant():

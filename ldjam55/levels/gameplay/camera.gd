@@ -17,4 +17,4 @@ func _process(delta):
 	if position.y > max_offset_y or position.y < 0:
 		movement_y *= -1
 
-	position += Vector2(movement_x * delta, movement_y  * delta)
+	global_position += Vector2(movement_x * delta, movement_y  * delta)
