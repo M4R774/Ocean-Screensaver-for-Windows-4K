@@ -3,9 +3,9 @@ extends CharacterBody2D
 var MANAGER: GAME_MANAGER
 
 var speed = 400
-var wandering_target: Vector2 = Vector2(0,0)
+var wandering_target: Vector2 = Vector2(0, 0)
 var food_target: Node2D
-var screen_size = Vector2(300, 300)
+var screen_size = Vector2(0, 0)
 var hunger = 0
 var hunger_timer: Timer
 
