@@ -29,7 +29,11 @@ GAME_MANAGER_SINGLETON="*res://globals/game_manager_singleton.gd"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+window/stretch/scale=0.5
 
 [gui]
 
