@@ -25,27 +25,27 @@ var MONEY = 0
 
 func add_fish(fish):
 	FISHES.append(fish)
-	print("Fish added, currently there are ", FISHES.size(), " fishes in the tank.")
+	print("Fish added, currently there are ", FISHES.size(), " fishes in the sea.")
 
 
 func add_food(food):
 	FOOD.append(food)
-	print("Food added, currently there are ", FOOD.size(), " food in the tank.")
+	print("Food added, currently there are ", FOOD.size(), " food.")
 
 
 func remove_fish(fish):
 	FISHES.erase(fish)
-	print("Fish removed, currently there are ", FISHES.size(), " fishes in the tank.")
+	print("Fish removed, currently there are ", FISHES.size(), " fishes in the sea.")
 
 
 func remove_food(food):
 	FOOD.erase(food)
-	print("Food removed, currently there are ", FOOD.size(), " food in the tank.")
+	print("Food removed, currently there is ", FOOD.size(), " food.")
 
 
 func add_money(amount):
 	MONEY += amount
-	print("Money added, currently there are ", MONEY, " money in the tank.")
+	print("Money: ", MONEY, " €")
 
 
 func get_closest_food(fish):
@@ -59,3 +59,10 @@ func get_closest_food(fish):
 			closest_distance = distance
 			closest_food = f
 	return closest_food
+
+
+func if_any_fish_is_hungry():
+	for fish in FISHES:
+		if fish.hunger >= 100:
+			return true
+	return false

@@ -38,10 +38,13 @@ func _process(delta):
 
 
 func update_HUD():
-	# TODO: If one of the fish is VERY hungry, show feeding prompt
-
-	var children_counter = 1
 	var children = get_children()
+	if MANAGER.if_any_fish_is_hungry():
+		children[0].show()
+	else:
+		children[0].hide()
+	var children_counter = 1
+
 	for item in MANAGER.ITEMS_TO_BUY:
 		if item["price"] <= MANAGER.MONEY:
 			children[children_counter].show()
