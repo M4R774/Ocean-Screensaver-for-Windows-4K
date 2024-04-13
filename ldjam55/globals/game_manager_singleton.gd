@@ -10,17 +10,25 @@ var kala_2: PackedScene = preload("res://entities/kalat/kala_2/kala_2.tscn")
 var kala_3: PackedScene = preload("res://entities/kalat/kala_3/kala_3.tscn")
 #var kasvi_3: PackedScene = preload("res://entities/kasvi_3/kasvi_3.tscn")
 var ITEMS_TO_BUY = [
-	{"name": "Fish", "price": 3, "scene": kala_1, "available": true},
-	#{"name": "Plant", "price": 10, "scene": kasvi_1, "available": true},
-	{"name": "Fish", "price": 4, "scene": kala_2, "available": true},
-	#{"name": "Plant", "price": 20, "scene": kasvi_2, "available": true},
-	{"name": "Fish", "price": 5, "scene": kala_3, "available": true},
-	#{"name": "Plant", "price": 30, "scene": kasvi_3, "available": true}
+	{"name": "An Automatic Food Summoner", "price": 5, "scene": null, "available": true},
+]
+
+var FISH_TO_BUY = [
+	{"name": "a Fish", "price": 10, "scene": kala_1, "available": true},
+	{"name": "a Fish for producing nutrients for plants", "price": 20, "scene": kala_2, "available": true},
+	{"name": "a Fish for producing nutrients for plants", "price": 40, "scene": kala_3, "available": true}
+]
+
+var PLANTS_TO_BUY = [
+	{"name": "a Plant for producing mana for summoning Fish", "price": 10, "scene": null, "available": true},
+	{"name": "a Plant for producing mana for summoning Fish", "price": 20, "scene": null, "available": true},
+	{"name": "a Plant for producing mana for summoning Fish", "price": 30, "scene": null, "available": true}
 ]
 
 var FISHES = []
 var FOOD = []
-var MONEY = 0
+var NUTRIENTS = 0
+var MANA = 0
 
 
 func add_fish(fish):
@@ -30,7 +38,7 @@ func add_fish(fish):
 
 func add_food(food):
 	FOOD.append(food)
-	print("Food added, currently there are ", FOOD.size(), " food.")
+	# print("Food added, currently there are ", FOOD.size(), " food.")
 
 
 func remove_fish(fish):
@@ -40,12 +48,17 @@ func remove_fish(fish):
 
 func remove_food(food):
 	FOOD.erase(food)
-	print("Food removed, currently there is ", FOOD.size(), " food.")
+	# print("Food removed, currently there is ", FOOD.size(), " food.")
 
 
-func add_money(amount):
-	MONEY += amount
-	print("Money: ", MONEY, " €")
+func add_nutrients(amount):
+	NUTRIENTS = NUTRIENTS + amount
+	print("Nutrients: ", NUTRIENTS)
+
+
+func add_mana(amount):
+	MANA = MANA + amount
+	print("Mana: ", MANA)
 
 
 func get_closest_food(fish):

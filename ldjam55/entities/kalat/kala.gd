@@ -34,6 +34,7 @@ func _on_timer_timeout() -> void:
 
 
 func increase_hunger():
+	MANAGER.add_mana(1)
 	hunger += 10
 	if hunger > 30 and food_target == null:
 		food_target = MANAGER.get_closest_food(self)
@@ -48,7 +49,7 @@ func _physics_process(_delta):
 			food_target.remove()
 			food_target = null
 			hunger -= 40
-			MANAGER.add_money(1)
+			MANAGER.add_nutrients(1)
 			return
 		velocity = (food_target.position - position).normalized() * speed * 3
 		move_and_slide()
