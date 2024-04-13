@@ -28,7 +28,7 @@ var PLANTS_TO_BUY = [
 var FISHES = []
 var FOOD = []
 var NUTRIENTS = 0
-var MANA = 0
+var MANA = 10
 
 
 func add_fish(fish):

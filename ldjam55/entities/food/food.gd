@@ -10,11 +10,12 @@ func _ready():
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
 	MANAGER.add_food(self)
 	screen_size = get_viewport().get_visible_rect().size
+	rotation = randf() * 2 * PI
 
 
 func _process(delta):
 	global_position.y += speed * delta
-	if position.y > screen_size.y:
+	if position.y > screen_size.y + 10:
 		remove()
 
 

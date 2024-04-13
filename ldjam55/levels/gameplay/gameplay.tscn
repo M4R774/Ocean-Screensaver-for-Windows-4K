@@ -1,18 +1,30 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxat161gi2b7e"]
+[gd_scene load_steps=28 format=3 uid="uid://bxat161gi2b7e"]
 
 [ext_resource type="Script" path="res://levels/gameplay/camera.gd" id="1_vqujo"]
 [ext_resource type="Texture2D" uid="uid://cdti3sds7xbht" path="res://levels/gameplay/water.png" id="2_2y8oe"]
 [ext_resource type="Texture2D" uid="uid://chtcct5c6fhde" path="res://levels/gameplay/bg1.png" id="2_fjhtv"]
+[ext_resource type="PackedScene" uid="uid://bedtpitlaoqb3" path="res://levels/gameplay/valotausta.tscn" id="2_hl18b"]
 [ext_resource type="Texture2D" uid="uid://dtdqlgv5211l4" path="res://levels/gameplay/bg2.png" id="3_pnris"]
 [ext_resource type="Texture2D" uid="uid://8jxdjawc07r3" path="res://levels/gameplay/bg3.png" id="4_1a32c"]
 [ext_resource type="Texture2D" uid="uid://c4dgyqqcnjkqa" path="res://levels/gameplay/bg4.png" id="5_1qhbu"]
 [ext_resource type="Texture2D" uid="uid://b3io7xw6kry3t" path="res://levels/gameplay/light1.png" id="6_84glr"]
 [ext_resource type="Texture2D" uid="uid://bkxwdv31lcqbb" path="res://levels/gameplay/light2.png" id="7_xgfha"]
 [ext_resource type="Texture2D" uid="uid://o3vsqnu2g5fp" path="res://levels/gameplay/light3.png" id="8_cg387"]
-[ext_resource type="PackedScene" uid="uid://b53nn42vcf8ma" path="res://entities/food/food.tscn" id="10_h71wg"]
 [ext_resource type="Script" path="res://entities/food/food_spawner.gd" id="11_thwep"]
-[ext_resource type="PackedScene" uid="uid://cfyqkehw7mw0v" path="res://entities/kalat/kala_1/kala_1.tscn" id="11_yyui5"]
 [ext_resource type="Script" path="res://menus/HUD/buy_menu.gd" id="12_dvtr1"]
+[ext_resource type="Texture2D" uid="uid://c3ehgmr5vs2ba" path="res://entities/plants/coral12.png" id="13_ickka"]
+[ext_resource type="Texture2D" uid="uid://dtfsub71077jm" path="res://entities/plants/coral10.png" id="13_jh81q"]
+[ext_resource type="Texture2D" uid="uid://bnxe6di14ngcy" path="res://entities/plants/coral1.png" id="14_se47p"]
+[ext_resource type="Texture2D" uid="uid://obx5ff8v2pob" path="res://entities/plants/coral11.png" id="15_2bmql"]
+[ext_resource type="Texture2D" uid="uid://cainbrooxbvde" path="res://entities/plants/coral2.png" id="16_i18k3"]
+[ext_resource type="Texture2D" uid="uid://7yhu1ow0evrw" path="res://entities/plants/coral3.png" id="17_ajhxm"]
+[ext_resource type="Texture2D" uid="uid://jefla334fcxe" path="res://entities/plants/coral4.png" id="18_khbch"]
+[ext_resource type="Texture2D" uid="uid://bf0oh8qgx8h3e" path="res://entities/plants/coral5.png" id="19_c7kjq"]
+[ext_resource type="Texture2D" uid="uid://t18k4jmioait" path="res://entities/plants/coral9.png" id="20_fita6"]
+[ext_resource type="Texture2D" uid="uid://xbx44xtt45we" path="res://entities/plants/coral6.png" id="21_h44k2"]
+[ext_resource type="Texture2D" uid="uid://dbddgig6txwmt" path="res://entities/plants/coral7.png" id="22_npgvi"]
+[ext_resource type="Texture2D" uid="uid://bm8kjklisjltp" path="res://entities/plants/coral13.png" id="24_upipr"]
+[ext_resource type="Texture2D" uid="uid://c5e2jfr7qsxrh" path="res://entities/plants/coral19.png" id="25_k8ppe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_seppo"]
 animations = [{
@@ -57,9 +69,14 @@ animations = [{
 scale = Vector2(0.3, 0.3)
 
 [node name="bluewaters" type="Sprite2D" parent="background"]
+visible = false
 scale = Vector2(1, 2)
 texture = ExtResource("2_2y8oe")
 centered = false
+
+[node name="root" parent="background" instance=ExtResource("2_hl18b")]
+position = Vector2(2000, 861.5)
+scale = Vector2(2, 2)
 
 [node name="seafloor1" type="AnimatedSprite2D" parent="background"]
 position = Vector2(0, 1100)
@@ -74,7 +91,24 @@ sprite_frames = SubResource("SpriteFrames_csmr2")
 frame_progress = 0.285419
 centered = false
 
-[node name="HUD" type="Control" parent="."]
+[node name="AleksinHiekkalaatikko" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManualFoodSpawner" type="Node" parent="AleksinHiekkalaatikko"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+position_smoothing_speed = 1.0
+script = ExtResource("1_vqujo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -84,9 +118,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_vqujo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -102,7 +135,7 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 script = ExtResource("12_dvtr1")
 
-[node name="Feed" type="Label" parent="HUD/VBoxContainer"]
+[node name="Feed" type="Label" parent="CanvasLayer/HUD/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -111,23 +144,72 @@ text = "Press F to summon Food"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Camera2D" type="Camera2D" parent="HUD"]
-anchor_mode = 0
-position_smoothing_speed = 1.0
-
-[node name="FoodSpawner" type="Node2D" parent="HUD"]
+[node name="FoodSpawner" type="Node2D" parent="."]
 script = ExtResource("11_thwep")
 
-[node name="AleksinHiekkalaatikko" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Plants" type="Node" parent="."]
 
-[node name="ManualFoodSpawner" type="Node" parent="AleksinHiekkalaatikko"]
+[node name="Coral12" type="Sprite2D" parent="Plants"]
+position = Vector2(130.506, 550)
+scale = Vector2(0.525974, 0.525974)
+texture = ExtResource("13_ickka")
 
-[node name="Food" parent="AleksinHiekkalaatikko" instance=ExtResource("10_h71wg")]
+[node name="Coral10" type="Sprite2D" parent="Plants"]
+position = Vector2(183, 454)
+scale = Vector2(0.341245, 0.341245)
+texture = ExtResource("13_jh81q")
 
-[node name="kala" parent="." instance=ExtResource("11_yyui5")]
+[node name="Coral1" type="Sprite2D" parent="Plants"]
+position = Vector2(464.31, 560.688)
+scale = Vector2(0.383064, 0.383064)
+texture = ExtResource("14_se47p")
+
+[node name="Coral5" type="Sprite2D" parent="Plants"]
+position = Vector2(1060, 519)
+scale = Vector2(0.445148, 0.445148)
+texture = ExtResource("19_c7kjq")
+
+[node name="Coral11" type="Sprite2D" parent="Plants"]
+position = Vector2(938, 555)
+scale = Vector2(0.537234, 0.537234)
+texture = ExtResource("15_2bmql")
+
+[node name="Coral2" type="Sprite2D" parent="Plants"]
+position = Vector2(897, 601)
+scale = Vector2(0.735294, 0.735294)
+texture = ExtResource("16_i18k3")
+
+[node name="Coral3" type="Sprite2D" parent="Plants"]
+position = Vector2(346, 615)
+scale = Vector2(0.493589, 0.493589)
+texture = ExtResource("17_ajhxm")
+
+[node name="Coral4" type="Sprite2D" parent="Plants"]
+position = Vector2(99, 317)
+scale = Vector2(0.444445, 0.444445)
+texture = ExtResource("18_khbch")
+
+[node name="Coral9" type="Sprite2D" parent="Plants"]
+position = Vector2(679, 510)
+scale = Vector2(0.427114, 0.427114)
+texture = ExtResource("20_fita6")
+
+[node name="Coral6" type="Sprite2D" parent="Plants"]
+position = Vector2(371, 455)
+scale = Vector2(0.26171, 0.26171)
+texture = ExtResource("21_h44k2")
+
+[node name="Coral7" type="Sprite2D" parent="Plants"]
+position = Vector2(656, 599)
+scale = Vector2(0.358014, 0.358014)
+texture = ExtResource("22_npgvi")
+
+[node name="Coral13" type="Sprite2D" parent="."]
+position = Vector2(1203, 597)
+scale = Vector2(0.364769, 0.364769)
+texture = ExtResource("24_upipr")
+
+[node name="Coral19" type="Sprite2D" parent="."]
+position = Vector2(1249, 496)
+scale = Vector2(0.348485, 0.348485)
+texture = ExtResource("25_k8ppe")

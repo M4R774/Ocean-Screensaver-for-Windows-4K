@@ -1,18 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbg7ft5eg8c7r"]
+[gd_scene load_steps=14 format=3 uid="uid://0ty2ade54s3d"]
 
-[ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_3erd6"]
-[ext_resource type="Texture2D" uid="uid://bulq74qfud5ow" path="res://entities/icon.svg" id="2_1pwed"]
+[ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_goy4e"]
+[ext_resource type="Texture2D" uid="uid://36l0pvavq3pr" path="res://entities/kalat/kala_2/kala1.png" id="2_t780c"]
+[ext_resource type="Texture2D" uid="uid://oc3xwv6svr" path="res://entities/kalat/kala_2/kala2.png" id="3_51yjh"]
+[ext_resource type="Texture2D" uid="uid://cv60e4y2ovwiw" path="res://entities/kalat/kala_2/kala3.png" id="4_6hmw7"]
+[ext_resource type="Texture2D" uid="uid://cau3sl4fhvqy7" path="res://entities/kalat/kala_2/kala4.png" id="5_tjq6p"]
+[ext_resource type="Texture2D" uid="uid://br1qgyv4tk4qt" path="res://entities/kalat/kala_2/kala5.png" id="6_8olpp"]
+[ext_resource type="Texture2D" uid="uid://fbrhxjqqtgg6" path="res://entities/kalat/kala_2/kala6.png" id="7_1jumc"]
+[ext_resource type="Texture2D" uid="uid://bjd5p5ahosvv5" path="res://entities/kalat/kala_2/kala7.png" id="8_a0gie"]
+[ext_resource type="Texture2D" uid="uid://bfjrp07b68p57" path="res://entities/kalat/kala_2/kala8.png" id="9_y50wp"]
+[ext_resource type="Texture2D" uid="uid://cx4mhv83fsapq" path="res://entities/kalat/kala_2/kala9.png" id="10_dkovo"]
+[ext_resource type="Texture2D" uid="uid://2aj0c4qmytf1" path="res://entities/kalat/kala_2/kala10.png" id="11_tlona"]
+[ext_resource type="Texture2D" uid="uid://5bkt74v44n7u" path="res://entities/kalat/kala_2/kala11.png" id="12_33tyg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_63ulj"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xed3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t780c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_51yjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6hmw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tjq6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8olpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1jumc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a0gie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y50wp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dkovo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tlona")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_33tyg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}]
 
-[node name="PlaceHolderUkkeli" type="Node2D"]
+[node name="kala_1" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_3erd6")
-speed = null
+script = ExtResource("1_goy4e")
+speed = 80
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_63ulj")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_1pwed")
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_xed3x")
+autoplay = "default"
+frame_progress = 0.765284

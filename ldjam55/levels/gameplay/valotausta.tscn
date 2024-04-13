@@ -14,15 +14,13 @@ texture = ExtResource("1_p7hty")
 [node name="lights_1" type="Sprite2D" parent="."]
 texture = ExtResource("2_iym7e")
 script = ExtResource("3_buayr")
+flash_multiplier = 1.1
 
 [node name="lights_2" type="Sprite2D" parent="."]
 texture = ExtResource("2_qnc33")
 script = ExtResource("3_buayr")
-flashspeed = 30
-max = 0.9
+flash_multiplier = 0.9
 
 [node name="lights_3" type="Sprite2D" parent="."]
 texture = ExtResource("4_8w2uo")
 script = ExtResource("3_buayr")
-flashspeed = 50
-max = 0.8

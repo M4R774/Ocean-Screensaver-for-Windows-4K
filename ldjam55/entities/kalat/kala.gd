@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var MANAGER: GAME_MANAGER
 
-var speed = 50
+@export var speed = 50
 var wandering_target: Vector2 = Vector2(0, 0)
 var food_target: Node2D
 var screen_size = Vector2(0, 0)
@@ -61,7 +61,6 @@ func _on_timer_timeout() -> void:
 
 
 func increase_hunger():
-	MANAGER.add_mana(1)
 	hunger += 10
 	if hunger > 30 and food_target == null:
 		food_target = MANAGER.get_closest_food(self)

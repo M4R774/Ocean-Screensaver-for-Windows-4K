@@ -3,7 +3,7 @@ extends VBoxContainer
 var MANAGER: GAME_MANAGER
 
 var screen_size = Vector2(0, 0)
-var speed = 10
+var speed = 1
 var direction = Vector2(1, 1)
 
 func _ready():
@@ -59,7 +59,7 @@ func handle_input():
 
 func update_HUD():
 	var children = get_children()
-	if MANAGER.if_any_fish_is_hungry() and MANAGER.ITEMS_TO_BUY[0]["available"] == true:
+	if MANAGER.if_any_fish_is_hungry() and MANAGER.ITEMS_TO_BUY[0]["available"] == true and MANAGER.FOOD.size() <= 0:
 		children[0].show()
 	else:
 		children[0].hide()
@@ -110,7 +110,6 @@ func handle_buying_plant():
 
 func handle_buying_auto_feeder():
 	MANAGER.ITEMS_TO_BUY[0]["available"] = false
-	# TODO: create a new auto feeder
 
 
 func has_enough_money(price):

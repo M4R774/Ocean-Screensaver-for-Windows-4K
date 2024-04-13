@@ -1,8 +1,9 @@
-extends Control
-var max_offset_x = 275
+extends Camera2D
+
+var max_offset_x = 235
 var max_offset_y = 55
-var movement_x = 10
-var movement_y = 5
+var movement_x = 5
+var movement_y = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
