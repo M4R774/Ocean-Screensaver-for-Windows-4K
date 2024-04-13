@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b53nn42vcf8ma"]
 
-[ext_resource type="Script" path="res://entities/food/manual_food.gd" id="1_ugwm3"]
+[ext_resource type="Script" path="res://entities/food/food.gd" id="1_ugwm3"]
 [ext_resource type="Texture2D" uid="uid://bacj7dw6phtt8" path="res://entities/food/hot_dog.jpg" id="2_umyuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8wyl"]

@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var ENTITIES: ENTITIES_LIST
+var ENTITIES: GAME_MANAGER
 
 var speed = 100
 var screen_size = Vector2(0, 0)
