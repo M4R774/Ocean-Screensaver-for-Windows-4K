@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bedtpitlaoqb3"]
+
+[ext_resource type="Texture2D" uid="uid://cdti3sds7xbht" path="res://levels/gameplay/water.png" id="1_p7hty"]
+[ext_resource type="Texture2D" uid="uid://b3io7xw6kry3t" path="res://levels/gameplay/light1.png" id="2_iym7e"]
+[ext_resource type="Texture2D" uid="uid://bkxwdv31lcqbb" path="res://levels/gameplay/light2.png" id="2_qnc33"]
+[ext_resource type="Script" path="res://levels/gameplay/lights_1.gd" id="3_buayr"]
+[ext_resource type="Texture2D" uid="uid://o3vsqnu2g5fp" path="res://levels/gameplay/light3.png" id="4_8w2uo"]
+
+[node name="root" type="Node2D"]
+
+[node name="blueness" type="Sprite2D" parent="."]
+texture = ExtResource("1_p7hty")
+
+[node name="lights_1" type="Sprite2D" parent="."]
+texture = ExtResource("2_iym7e")
+script = ExtResource("3_buayr")
+
+[node name="lights_2" type="Sprite2D" parent="."]
+texture = ExtResource("2_qnc33")
+script = ExtResource("3_buayr")
+flashspeed = 30
+max = 0.9
+
+[node name="lights_3" type="Sprite2D" parent="."]
+texture = ExtResource("4_8w2uo")
+script = ExtResource("3_buayr")
+flashspeed = 50
+max = 0.8
