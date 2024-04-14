@@ -31,7 +31,6 @@ GAME_MANAGER_SINGLETON="*res://globals/game_manager_singleton.gd"
 
 window/size/viewport_width=1066
 window/size/viewport_height=600
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [gui]
@@ -88,6 +87,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false

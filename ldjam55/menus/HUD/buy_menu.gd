@@ -104,8 +104,15 @@ func handle_buying_fish():
 
 
 func handle_buying_plant():
-	# TODO
-	pass
+	for plant in MANAGER.PLANTS_TO_BUY:
+		if plant["available"]:
+			if plant["price"] <= MANAGER.NUTRIENTS:
+				MANAGER.add_nutrients(-plant["price"])
+				plant["available"] = false
+				get_node(plant["node_path"]).show()
+			if plant.has("hide_panel_path"):
+				get_node(plant["hide_panel_path"]).hide()
+			break
 
 
 func handle_buying_auto_feeder():

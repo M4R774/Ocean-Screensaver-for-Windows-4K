@@ -4,25 +4,38 @@ class_name GAME_MANAGER
 
 # Kala_1: 10 €;
 var kala_1: PackedScene = preload("res://entities/kalat/kala_1/kala_1.tscn")
-#var kasvi_1: PackedScene = preload("res://entities/kasvi_1/kasvi_1.tscn")
-var kala_2: PackedScene = preload("res://entities/kalat/kala_1/kala_1.tscn")
-#var kasvi_2: PackedScene = preload("res://entities/kasvi_2/kasvi_2.tscn")
-var kala_3: PackedScene = preload("res://entities/kalat/kala_1/kala_1.tscn")
-#var kasvi_3: PackedScene = preload("res://entities/kasvi_3/kasvi_3.tscn")
+var kala_2: PackedScene = preload("res://entities/kalat/kala_2/kala_2.tscn")
+var kala_3: PackedScene = preload("res://entities/kalat/kala_3/kala_3.tscn")
+
 var ITEMS_TO_BUY = [
-	{"name": "An Automatic Food Summoner", "price": 10, "scene": null, "available": true},
+	{"name": "An Automatic Food Summoner", "price": 10, "available": true},
+	{"name": "An Automatic Food Summoner", "price": 60, "available": true},
+	{"name": "An Automatic Food Summoner", "price": 120, "available": true},
+	{"name": "An Automatic Food Summoner", "price": 240, "available": true},
 ]
 
 var FISH_TO_BUY = [
 	{"name": "a Fish", "price": 10, "scene": kala_1, "available": true},
-	{"name": "a Fish for summoning nutrients for plants", "price": 20, "scene": kala_2, "available": true},
-	{"name": "a Fish for summoning nutrients for plants", "price": 40, "scene": kala_3, "available": true}
+	{"name": "a Fish", "price": 30, "scene": kala_1, "available": true},
+	{"name": "a Fish", "price": 60, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 80, "scene": kala_2, "available": true},
 ]
 
 var PLANTS_TO_BUY = [
-	{"name": "a Plant for producing mana for summoning Fish", "price": 14, "scene": null, "available": true},
-	{"name": "a Plant for producing mana for summoning Fish", "price": 28, "scene": null, "available": true},
-	{"name": "a Plant for producing mana for summoning Fish", "price": 56, "scene": null, "available": true}
+	{"name": "The Sun", "price": 5, "node_path": "/root/Root/background/root", "available": true, "hide_panel_path": "/root/Root/CanvasLayer/HUD/Panel"},
+	{"name": "a Plant", "price": 10, "node_path": "/root/Root/Plants/Coral1", "available": true},
+	{"name": "a Plant", "price": 20, "node_path": "/root/Root/Plants/Coral2", "available": true},
+	{"name": "a Plant", "price": 40, "node_path": "/root/Root/Plants/Coral3", "available": true},
+	{"name": "a Plant", "price": 80, "node_path": "/root/Root/Plants/Coral4", "available": true},
+	{"name": "a Plant", "price": 160, "node_path": "/root/Root/Plants/Coral5", "available": true},
+	{"name": "a Plant", "price": 320, "node_path": "/root/Root/Plants/Coral6", "available": true},
+	{"name": "a Plant", "price": 640, "node_path": "/root/Root/Plants/Coral7", "available": true},
+	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral9", "available": true},
+	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral10", "available": true},
+	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral11", "available": true},
+	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral12", "available": true},
+	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral13", "available": true},
+	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral19", "available": true},
 ]
 
 var FISHES = []

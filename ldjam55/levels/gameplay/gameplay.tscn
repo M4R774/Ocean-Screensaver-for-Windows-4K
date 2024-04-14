@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxat161gi2b7e"]
+[gd_scene load_steps=30 format=3 uid="uid://bxat161gi2b7e"]
 
 [ext_resource type="Script" path="res://levels/gameplay/camera.gd" id="1_vqujo"]
 [ext_resource type="Texture2D" uid="uid://cdti3sds7xbht" path="res://levels/gameplay/water.png" id="2_2y8oe"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dtfsub71077jm" path="res://entities/plants/coral10.png" id="13_jh81q"]
 [ext_resource type="Texture2D" uid="uid://bnxe6di14ngcy" path="res://entities/plants/coral1.png" id="14_se47p"]
 [ext_resource type="Texture2D" uid="uid://obx5ff8v2pob" path="res://entities/plants/coral11.png" id="15_2bmql"]
+[ext_resource type="Script" path="res://entities/plants/plant.gd" id="16_7lul7"]
 [ext_resource type="Texture2D" uid="uid://cainbrooxbvde" path="res://entities/plants/coral2.png" id="16_i18k3"]
 [ext_resource type="Texture2D" uid="uid://7yhu1ow0evrw" path="res://entities/plants/coral3.png" id="17_ajhxm"]
 [ext_resource type="Texture2D" uid="uid://jefla334fcxe" path="res://entities/plants/coral4.png" id="18_khbch"]
@@ -63,18 +64,22 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ito4s"]
+bg_color = Color(0, 0, 0, 0.803922)
+
 [node name="Root" type="Node"]
 
 [node name="background" type="Node2D" parent="."]
 scale = Vector2(0.3, 0.3)
 
 [node name="bluewaters" type="Sprite2D" parent="background"]
-visible = false
+modulate = Color(1, 1, 1, 0.341176)
 scale = Vector2(1, 2)
 texture = ExtResource("2_2y8oe")
 centered = false
 
 [node name="root" parent="background" instance=ExtResource("2_hl18b")]
+visible = false
 position = Vector2(2000, 861.5)
 scale = Vector2(2, 2)
 
@@ -119,6 +124,15 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Panel" type="Panel" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ito4s")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = 8
@@ -150,66 +164,80 @@ script = ExtResource("11_thwep")
 [node name="Plants" type="Node" parent="."]
 
 [node name="Coral12" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(130.506, 550)
 scale = Vector2(0.525974, 0.525974)
 texture = ExtResource("13_ickka")
 
 [node name="Coral10" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(183, 454)
 scale = Vector2(0.341245, 0.341245)
 texture = ExtResource("13_jh81q")
 
 [node name="Coral1" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(464.31, 560.688)
 scale = Vector2(0.383064, 0.383064)
 texture = ExtResource("14_se47p")
+script = ExtResource("16_7lul7")
 
 [node name="Coral5" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(1060, 519)
 scale = Vector2(0.445148, 0.445148)
 texture = ExtResource("19_c7kjq")
 
 [node name="Coral11" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(938, 555)
 scale = Vector2(0.537234, 0.537234)
 texture = ExtResource("15_2bmql")
 
 [node name="Coral2" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(897, 601)
 scale = Vector2(0.735294, 0.735294)
 texture = ExtResource("16_i18k3")
 
 [node name="Coral3" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(346, 615)
 scale = Vector2(0.493589, 0.493589)
 texture = ExtResource("17_ajhxm")
 
 [node name="Coral4" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(99, 317)
 scale = Vector2(0.444445, 0.444445)
 texture = ExtResource("18_khbch")
 
 [node name="Coral9" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(679, 510)
 scale = Vector2(0.427114, 0.427114)
 texture = ExtResource("20_fita6")
 
 [node name="Coral6" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(371, 455)
 scale = Vector2(0.26171, 0.26171)
 texture = ExtResource("21_h44k2")
 
 [node name="Coral7" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(656, 599)
 scale = Vector2(0.358014, 0.358014)
 texture = ExtResource("22_npgvi")
 
-[node name="Coral13" type="Sprite2D" parent="."]
+[node name="Coral13" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(1203, 597)
 scale = Vector2(0.364769, 0.364769)
 texture = ExtResource("24_upipr")
 
-[node name="Coral19" type="Sprite2D" parent="."]
+[node name="Coral19" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(1249, 496)
 scale = Vector2(0.348485, 0.348485)
 texture = ExtResource("25_k8ppe")

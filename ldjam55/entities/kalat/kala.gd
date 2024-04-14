@@ -11,6 +11,7 @@ var max_hunger = 200
 var hunger_timer: Timer
 var animated_sprite: AnimatedSprite2D
 
+
 func _ready():
 	animated_sprite = get_node("AnimatedSprite")
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
