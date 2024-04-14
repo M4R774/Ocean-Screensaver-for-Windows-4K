@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bxat161gi2b7e"]
+[gd_scene load_steps=37 format=3 uid="uid://bxat161gi2b7e"]
 
 [ext_resource type="Script" path="res://levels/gameplay/camera.gd" id="1_vqujo"]
 [ext_resource type="Texture2D" uid="uid://cdti3sds7xbht" path="res://levels/gameplay/water.png" id="2_2y8oe"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://menus/HUD/buy_menu.gd" id="12_dvtr1"]
 [ext_resource type="Texture2D" uid="uid://c3ehgmr5vs2ba" path="res://entities/plants/coral12.png" id="13_ickka"]
 [ext_resource type="Texture2D" uid="uid://dtfsub71077jm" path="res://entities/plants/coral10.png" id="13_jh81q"]
+[ext_resource type="Shader" path="res://levels/gameplay/water.gdshader" id="14_pv18w"]
 [ext_resource type="Texture2D" uid="uid://bnxe6di14ngcy" path="res://entities/plants/coral1.png" id="14_se47p"]
 [ext_resource type="Texture2D" uid="uid://obx5ff8v2pob" path="res://entities/plants/coral11.png" id="15_2bmql"]
 [ext_resource type="PackedScene" uid="uid://cv6c68ylt4y5p" path="res://entities/food/food2.tscn" id="15_sauvj"]
@@ -70,6 +71,19 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ito4s"]
 bg_color = Color(0, 0, 0, 0.803922)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c7lbo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ewasq"]
+seamless = true
+noise = SubResource("FastNoiseLite_c7lbo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnb2p"]
+shader = ExtResource("14_pv18w")
+shader_parameter/speed = 0.01
+shader_parameter/scale = 0.01
+shader_parameter/BIAS = 0.0
+shader_parameter/noise = SubResource("NoiseTexture2D_ewasq")
+
 [node name="Root" type="Node"]
 
 [node name="background" type="Node2D" parent="."]
@@ -118,7 +132,7 @@ script = ExtResource("1_vqujo")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
-z_index = 1
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,7 +203,6 @@ texture = ExtResource("13_jh81q")
 script = ExtResource("16_7lul7")
 
 [node name="Coral1" type="Sprite2D" parent="Plants"]
-visible = false
 position = Vector2(464.31, 560.688)
 scale = Vector2(0.383064, 0.383064)
 texture = ExtResource("14_se47p")
@@ -264,3 +277,11 @@ position = Vector2(1249, 496)
 scale = Vector2(0.348485, 0.348485)
 texture = ExtResource("25_k8ppe")
 script = ExtResource("16_7lul7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_dnb2p")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -63,11 +63,11 @@ func _on_timer_timeout() -> void:
 
 
 func increase_hunger():
-	hunger += 10
-	if hunger > 30 and food_target == null:
+	hunger += 1
+	if hunger > 60 and food_target == null:
 		food_target = MANAGER.get_closest_food(self)
-	if hunger > 100:
-		hunger = 100
+	if hunger > 200:
+		hunger = 200
 
 
 func remove_fish():
