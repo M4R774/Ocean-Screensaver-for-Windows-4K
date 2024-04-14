@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -9,40 +8,34 @@ import (
 	"syscall"
 
 	"github.com/postfinance/single"
+	"tawesoft.co.uk/go/dialog"
 )
 
 func main() {
 	// Specify the path to your Godot game executable
-	gamePath := "./ldjam55.exe"
+	gamePath := "./debug.exe" // TODO!!
 
 	// Get the absolute path of the game executable
 	absGamePath, err := filepath.Abs(gamePath)
 	if err != nil {
-		fmt.Printf("Error finding game executable: %v\n", err)
+		dialog.Alert("Error finding game executable: %v\n", err)
 		return
 	}
 
-	// Create a single instance lock for your application
-	s, err := single.New(filepath.Base(absGamePath))
+	// create a new lockfile in /var/lock/filename
+	one, err := single.New("single", single.WithLockPath("./"))
 	if err != nil {
-		if err == single.ErrAlreadyRunning {
-			fmt.Println("Another instance of the program is already running.")
-			return
-		}
-		fmt.Printf("Error creating single instance: %v\n", err)
-		return
+		dialog.Alert(err.Error())
 	}
 
-	defer func() {
-		// Release the single instance lock when the function exits
-		if err := s.Unlock(); err != nil {
-			fmt.Printf("Error releasing single instance lock: %v\n", err)
-		}
-	}()
+	// lock and defer unlocking
+	if err := one.Lock(); err != nil {
+		dialog.Alert(err.Error())
+	}
 
 	// Check if the game executable exists
 	if _, err := os.Stat(absGamePath); os.IsNotExist(err) {
-		fmt.Printf("Game executable not found: %s\n", absGamePath)
+		dialog.Alert("Game executable not found: " + absGamePath)
 		return
 	}
 
@@ -51,18 +44,17 @@ func main() {
 	mode := "/c" // Default mode if no arguments are given
 
 	if len(args) > 0 {
-		mode = strings.ToLower(args[0])
+		// Split the argument to handle mode and potential window handle
+		argParts := strings.SplitN(args[0], ":", 2)
+		mode = strings.ToLower(argParts[0])
 	}
 
 	switch mode {
-	case "/p":
-		// Show preview in screensaver selection dialog box
+	case "/p": // Show preview in screensaver selection dialog box
 		return
-		// TODO: Figure out how to do this
-	case "/c":
-		// Show screensaver configuration dialog box
+	case "/c": // Show screensaver configuration dialog box
+		dialog.Alert("This screensaver has no adjustable settings.")
 		return
-		// TODO: Show popup that there is no settings
 	}
 
 	// Execute the game as a background process
@@ -73,4 +65,8 @@ func main() {
 
 	_ = cmd.Start()
 	_, _ = cmd.Process.Wait()
+
+	if err := one.Unlock(); err != nil {
+		dialog.Alert(err.Error())
+	}
 }

@@ -14,7 +14,7 @@ func _ready():
         window.set_current_screen(i)
         var screen_position = DisplayServer.screen_get_position(i)
         window.set_position(screen_position)
-        window.mode = Window.MODE_FULLSCREEN
+        window.mode = Window.MODE_WINDOWED
         add_child(window)
         print("Window added to screen: ", i)
     get_window().grab_focus()
