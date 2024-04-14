@@ -5,6 +5,7 @@ var MANAGER: GAME_MANAGER
 var speed = 20.0
 var screen_size = Vector2(0, 0)
 
+# TODO: food_prefab varieties, change sprite randomly
 
 func _ready():
 	speed += randf_range(-10.0, 10.0)

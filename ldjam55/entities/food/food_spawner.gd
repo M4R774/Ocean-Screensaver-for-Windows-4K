@@ -3,6 +3,7 @@ extends Node2D
 var MANAGER: GAME_MANAGER
 
 @export var food_prefab: PackedScene = preload("res://entities/food/food.tscn")
+@export var index = 0
 
 var screen_size = Vector2(0, 0)
 
@@ -22,7 +23,7 @@ func _process(_delta):
 
 
 func _on_timer_timeout():
-	if not MANAGER.ITEMS_TO_BUY[0]["available"]:
+	if not MANAGER.ITEMS_TO_BUY[index]["available"]:
 		for i in range(3):
 			spawn_food()
 

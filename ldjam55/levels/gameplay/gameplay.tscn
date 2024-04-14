@@ -160,6 +160,14 @@ text = "Press F to summon Food"
 [node name="FoodSpawner" type="Node2D" parent="."]
 script = ExtResource("11_thwep")
 
+[node name="FoodSpawner1" type="Node2D" parent="."]
+script = ExtResource("11_thwep")
+index = 1
+
+[node name="FoodSpawner2" type="Node2D" parent="."]
+script = ExtResource("11_thwep")
+index = 2
+
 [node name="Plants" type="Node" parent="."]
 
 [node name="Coral12" type="Sprite2D" parent="Plants"]

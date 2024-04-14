@@ -27,8 +27,13 @@ func _ready():
 		label.set("theme_override_font_sizes/font_size", 24)
 		add_child(label)
 
-	# TODO: Spend all mana and nutrients to buy stuff
-	
+	# Spend all mana and nutrients to buy stuff
+	for item in MANAGER.ITEMS_TO_BUY:
+		
+	for fish in MANAGER.FISH_TO_BUY:
+		pass
+	for plant in MANAGER.PLANTS_TO_BUY:
+		pass
 	
 
 	update_HUD()
@@ -102,29 +107,49 @@ func update_HUD():
 func handle_buying_fish():
 	for fish in MANAGER.FISH_TO_BUY:
 		if fish["available"]:
-			if fish["price"] <= MANAGER.MANA:
-				MANAGER.add_mana(-fish["price"])
-				fish["available"] = false
-				var new_fish = fish["scene"].instantiate()
-				screen_size = get_viewport_rect().size
-				get_node("/root").add_child(new_fish)
+			try_buying_fish(fish)
 			break
+
+
+func try_buying_fish(fish):
+	if fish["price"] <= MANAGER.MANA:
+		MANAGER.add_mana(-fish["price"])
+		fish["available"] = false
+		var new_fish = fish["scene"].instantiate()
+		screen_size = get_viewport_rect().size
+		get_node("/root").add_child(new_fish)
 
 
 func handle_buying_plant():
 	for plant in MANAGER.PLANTS_TO_BUY:
 		if plant["available"]:
-			if plant["price"] <= MANAGER.NUTRIENTS:
-				MANAGER.add_nutrients(-plant["price"])
-				plant["available"] = false
-				get_node(plant["node_path"]).show()
-			if plant.has("hide_panel_path"):
-				get_node(plant["hide_panel_path"]).make_hidden()
+			try_buying_plant(plant)
 			break
 
 
+func try_buying_plant(plant):
+	if plant["price"] <= MANAGER.NUTRIENTS:
+		MANAGER.add_nutrients(-plant["price"])
+		plant["available"] = false
+		get_node(plant["node_path"]).show()
+	if plant.has("hide_panel_path"):
+		get_node(plant["hide_panel_path"]).make_hidden()
+
+
 func handle_buying_auto_feeder():
-	MANAGER.ITEMS_TO_BUY[0]["available"] = false
+	for autofeeder in MANAGER.AUTO_FEEDERS_TO_BUY:
+		if autofeeder["available"]:
+			try_buying_autofeeder(autofeeder)
+
+
+func try_buying_autofeeder(autofeeder):
+	# TODO fix autofeeder
+	if autofeeder["price"] <= MANAGER.NUTRIENTS:
+		MANAGER.add_nutrients(-plant["price"])
+		autofeeder["available"] = false
+		get_node(autofeeder["node_path"]).show()
+	if autofeeder.has("hide_panel_path"):
+		get_node(autofeeder["hide_panel_path"]).make_hidden()
 
 
 func has_enough_money(price):
