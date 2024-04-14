@@ -22,9 +22,6 @@ buses/default_bus_layout="res://globals/audio_bus.tres"
 
 [autoload]
 
-HIGHSCORE_SINGLETON="*res://globals/highscore_singleton.gd"
-SECRETS="res://globals/secrets.gd"
-EXAMPLE_SECRETS="res://globals/example.secrets.gd"
 GAME_MANAGER_SINGLETON="*res://globals/game_manager_singleton.gd"
 
 [display]

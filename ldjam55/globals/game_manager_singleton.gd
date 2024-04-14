@@ -13,15 +13,15 @@ var ITEMS_TO_BUY = [
 ]
 
 var FISH_TO_BUY = [
-	{"name": "a Fish", "price": 5, "scene": kala_1, "available": true},
-	{"name": "a Fish", "price": 5, "scene": kala_1, "available": true},
-	{"name": "a Fish", "price": 5, "scene": kala_2, "available": true},
-	{"name": "a Fish", "price": 5, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 10, "scene": kala_1, "available": true},
+	{"name": "a Fish", "price": 120, "scene": kala_1, "available": true},
+	{"name": "a Fish", "price": 500, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 1000, "scene": kala_2, "available": true},
 ]
 
 var PLANTS_TO_BUY = [
-	{"name": "The Sun", "price": 10, "node_path": "/root/Root/background/root", "available": true, "hide_panel_path": "/root/Root/CanvasLayer/HUD/Panel"},
-	{"name": "a Plant", "price": 10, "node_path": "/root/Root/Plants/Coral1", "available": true},
+	{"name": "The Sun", "price": 5, "node_path": "/root/Root/background/root", "available": true, "hide_panel_path": "/root/Root/CanvasLayer/HUD/Panel"},
+	{"name": "a Plant", "price": 5, "node_path": "/root/Root/Plants/Coral1", "available": true},
 	{"name": "a Plant", "price": 20, "node_path": "/root/Root/Plants/Coral2", "available": true},
 	{"name": "a Plant", "price": 40, "node_path": "/root/Root/Plants/Coral3", "available": true},
 	{"name": "a Plant", "price": 80, "node_path": "/root/Root/Plants/Coral4", "available": true},
@@ -48,32 +48,32 @@ func _ready():
 
 func add_fish(fish):
 	FISHES.append(fish)
-	print("Fish added, currently there are ", FISHES.size(), " fishes in the sea.")
+	#print("Fish added, currently there are ", FISHES.size(), " fishes in the sea.")
 
 
 func add_food(food):
 	FOOD.append(food)
-	# print("Food added, currently there are ", FOOD.size(), " food.")
+	#print("Food added, currently there are ", FOOD.size(), " food.")
 
 
 func remove_fish(fish):
 	FISHES.erase(fish)
-	print("Fish removed, currently there are ", FISHES.size(), " fishes in the sea.")
+	#print("Fish removed, currently there are ", FISHES.size(), " fishes in the sea.")
 
 
 func remove_food(food):
 	FOOD.erase(food)
-	# print("Food removed, currently there is ", FOOD.size(), " food.")
+	#print("Food removed, currently there is ", FOOD.size(), " food.")
 
 
 func add_nutrients(amount):
 	NUTRIENTS = NUTRIENTS + amount
-	print("Nutrients: ", NUTRIENTS)
+	#print("Nutrients: ", NUTRIENTS)
 
 
 func add_mana(amount):
 	MANA = MANA + amount
-	print("Mana: ", MANA)
+	#print("Mana: ", MANA)
 
 
 func get_closest_food(fish):
@@ -119,8 +119,6 @@ func exit_screensaver_gracefully():
 
 
 func save_game():
-	# TODO
-	# Myy kaikki kalat, kasvit ja syöttäjät
 	# Iterate over items
 	for item in ITEMS_TO_BUY:
 		if item["available"] == false:
@@ -154,6 +152,8 @@ func load_game_from_disk():
 		return
 	var nutrients_file = FileAccess.open("user://nutrients.save", FileAccess.READ)
 	NUTRIENTS = nutrients_file.get_var(true)
+
+	print("Game loaded. Mana: ", MANA, ", Nutrients: ", NUTRIENTS)
 
 
 func reset_game():

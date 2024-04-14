@@ -29,12 +29,11 @@ func _ready():
 
 	# Spend all mana and nutrients to buy stuff
 	for item in MANAGER.ITEMS_TO_BUY:
-		
+		try_buying_autofeeder(item)
 	for fish in MANAGER.FISH_TO_BUY:
-		pass
+		try_buying_fish(fish)
 	for plant in MANAGER.PLANTS_TO_BUY:
-		pass
-	
+		try_buying_plant(plant)
 
 	update_HUD()
 	screen_size = get_viewport_rect().size
@@ -117,7 +116,7 @@ func try_buying_fish(fish):
 		fish["available"] = false
 		var new_fish = fish["scene"].instantiate()
 		screen_size = get_viewport_rect().size
-		get_node("/root").add_child(new_fish)
+		get_node("/root").add_child.call_deferred(new_fish)
 
 
 func handle_buying_plant():
@@ -132,24 +131,20 @@ func try_buying_plant(plant):
 		MANAGER.add_nutrients(-plant["price"])
 		plant["available"] = false
 		get_node(plant["node_path"]).show()
-	if plant.has("hide_panel_path"):
-		get_node(plant["hide_panel_path"]).make_hidden()
+		if plant.has("hide_panel_path"):
+			get_node(plant["hide_panel_path"]).make_hidden()
 
 
 func handle_buying_auto_feeder():
-	for autofeeder in MANAGER.AUTO_FEEDERS_TO_BUY:
+	for autofeeder in MANAGER.ITEMS_TO_BUY:
 		if autofeeder["available"]:
 			try_buying_autofeeder(autofeeder)
 
 
 func try_buying_autofeeder(autofeeder):
-	# TODO fix autofeeder
 	if autofeeder["price"] <= MANAGER.NUTRIENTS:
-		MANAGER.add_nutrients(-plant["price"])
+		MANAGER.add_nutrients(-autofeeder["price"])
 		autofeeder["available"] = false
-		get_node(autofeeder["node_path"]).show()
-	if autofeeder.has("hide_panel_path"):
-		get_node(autofeeder["hide_panel_path"]).make_hidden()
 
 
 func has_enough_money(price):
