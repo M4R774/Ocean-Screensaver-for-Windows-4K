@@ -92,3 +92,43 @@ func if_any_fish_is_hungry():
 		if fish.hunger >= 100:
 			return true
 	return false
+
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		exit_screensaver_gracefully()
+
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if (not Input.is_action_just_pressed("feed") and \
+				not Input.is_action_just_pressed("summon_fish") and \
+				not Input.is_action_just_pressed("summon_plant") and \
+				not Input.is_action_just_pressed("summon_auto_feeder")):
+			exit_screensaver_gracefully()
+	if event is InputEventMouseButton:
+		if event.pressed:
+			exit_screensaver_gracefully()
+
+
+# TODO: handle mouse movement quit
+
+
+func exit_screensaver_gracefully():
+	save_game()
+	get_tree().quit()
+
+
+func save_game():
+	pass  # TODO
+	
+	#var save_game = File.new()
+	#save_game.open("user://savegame.save", File.WRITE)
+	#var save_data = {
+	#	"fishes": FISHES,
+	#	"food": FOOD,
+	#	"nutrients": NUTRIENTS,
+	#	"mana": MANA
+	#}
+	#save_game.store_line(to_json(save_data))
+	#save_game.close()
