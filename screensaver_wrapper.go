@@ -12,8 +12,14 @@ import (
 )
 
 func main() {
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	pwd := filepath.Dir(ex)
+
 	// Specify the path to your Godot game executable
-	gamePath := "./debug.exe" // TODO!!
+	gamePath := pwd + "/ldjam55.exe" // TODO!!
 
 	// Get the absolute path of the game executable
 	absGamePath, err := filepath.Abs(gamePath)
@@ -23,7 +29,7 @@ func main() {
 	}
 
 	// create a new lockfile in /var/lock/filename
-	one, err := single.New("single", single.WithLockPath("./"))
+	one, err := single.New("single", single.WithLockPath(pwd))
 	if err != nil {
 		dialog.Alert(err.Error())
 	}
