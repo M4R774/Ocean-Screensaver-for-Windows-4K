@@ -7,6 +7,7 @@ var MANAGER: GAME_MANAGER
 
 var screen_size = Vector2(0, 0)
 
+
 func _ready():
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
 	var timer = Timer.new()
@@ -25,7 +26,6 @@ func _process(_delta):
 			for i in range(1, MANAGER.ITEMS_TO_BUY.size()):
 				if index == i and not MANAGER.ITEMS_TO_BUY[i]["available"]:
 					spawn_food()
-
 
 
 func _on_timer_timeout():

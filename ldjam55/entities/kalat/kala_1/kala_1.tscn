@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfyqkehw7mw0v"]
+[gd_scene load_steps=14 format=3 uid="uid://cfyqkehw7mw0v"]
 
 [ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_ia1f3"]
 [ext_resource type="Texture2D" uid="uid://gjrlj82ah6q6" path="res://entities/kalat/kala_1/kala1.png" id="2_1aw5j"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b7njouuwtc0pq" path="res://entities/kalat/kala_1/kala8.png" id="9_qectb"]
 [ext_resource type="Texture2D" uid="uid://bxd07a163ib8h" path="res://entities/kalat/kala_1/kala9.png" id="10_j0fbj"]
 [ext_resource type="Texture2D" uid="uid://cat6okvew1ia0" path="res://entities/kalat/kala_1/kala10.png" id="11_0vvre"]
+[ext_resource type="Texture2D" uid="uid://rvt2dgfpa2cx" path="res://entities/kalat/kala_1/kala11.png" id="12_4mw1x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_de5ah"]
 animations = [{
@@ -44,6 +45,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("11_0vvre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4mw1x")
 }],
 "loop": true,
 "name": &"default",
@@ -60,4 +64,5 @@ speed = 40
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_de5ah")
 autoplay = "default"
-frame_progress = 0.806082
+frame = 1
+frame_progress = 0.453821
