@@ -1,7 +1,7 @@
 extends Node2D
 
 var MANAGER: GAME_MANAGER
-
+# TODO: food_prefab varieties
 @export var food_prefab: PackedScene = preload("res://entities/food/food.tscn")
 @export var index = 0
 

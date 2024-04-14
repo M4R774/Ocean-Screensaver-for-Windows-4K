@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://b53nn42vcf8ma"]
 
 [ext_resource type="Script" path="res://entities/food/food.gd" id="1_ugwm3"]
-[ext_resource type="Texture2D" uid="uid://yq1nt5gs7wff" path="res://entities/food/fishfood3.png" id="2_laanm"]
+[ext_resource type="Texture2D" uid="uid://2gop8guea1ow" path="res://entities/food/fishfood1.png" id="2_rljvm"]
 
 [node name="Food" type="StaticBody2D"]
 script = ExtResource("1_ugwm3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_laanm")
+texture = ExtResource("2_rljvm")

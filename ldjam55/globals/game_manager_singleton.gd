@@ -10,7 +10,6 @@ var ITEMS_TO_BUY = [
 	{"name": "An Automatic Food Summoner", "price": 10, "available": true},
 	{"name": "An Automatic Food Summoner", "price": 60, "available": true},
 	{"name": "An Automatic Food Summoner", "price": 120, "available": true},
-	{"name": "An Automatic Food Summoner", "price": 240, "available": true},
 ]
 
 var FISH_TO_BUY = [
