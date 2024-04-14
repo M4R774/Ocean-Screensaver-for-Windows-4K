@@ -15,15 +15,15 @@ var ITEMS_TO_BUY = [
 ]
 
 var FISH_TO_BUY = [
-	{"name": "a Fish", "price": 10, "scene": kala_1, "available": true},
-	{"name": "a Fish", "price": 30, "scene": kala_1, "available": true},
-	{"name": "a Fish", "price": 60, "scene": kala_2, "available": true},
-	{"name": "a Fish", "price": 80, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 5, "scene": kala_1, "available": true},
+	{"name": "a Fish", "price": 5, "scene": kala_1, "available": true},
+	{"name": "a Fish", "price": 5, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 5, "scene": kala_2, "available": true},
 ]
 
 var PLANTS_TO_BUY = [
 	{"name": "The Sun", "price": 5, "node_path": "/root/Root/background/root", "available": true, "hide_panel_path": "/root/Root/CanvasLayer/HUD/Panel"},
-	{"name": "a Plant", "price": 10, "node_path": "/root/Root/Plants/Coral1", "available": true},
+	{"name": "a Plant", "price": 5, "node_path": "/root/Root/Plants/Coral1", "available": true},
 	{"name": "a Plant", "price": 20, "node_path": "/root/Root/Plants/Coral2", "available": true},
 	{"name": "a Plant", "price": 40, "node_path": "/root/Root/Plants/Coral3", "available": true},
 	{"name": "a Plant", "price": 80, "node_path": "/root/Root/Plants/Coral4", "available": true},

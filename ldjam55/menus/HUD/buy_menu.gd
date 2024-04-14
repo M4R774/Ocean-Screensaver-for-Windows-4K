@@ -5,6 +5,9 @@ var MANAGER: GAME_MANAGER
 var screen_size = Vector2(0, 0)
 var speed = 1
 var direction = Vector2(1, 1)
+var hide_darkness = false
+var darkness_alpha = 1.0
+
 
 func _ready():
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
@@ -111,7 +114,7 @@ func handle_buying_plant():
 				plant["available"] = false
 				get_node(plant["node_path"]).show()
 			if plant.has("hide_panel_path"):
-				get_node(plant["hide_panel_path"]).hide()
+				get_node(plant["hide_panel_path"]).make_hidden()
 			break
 
 

@@ -13,12 +13,13 @@ var animated_sprite: AnimatedSprite2D
 
 
 func _ready():
+	speed += randf_range(-10.0, 20.0)
 	animated_sprite = get_node("AnimatedSprite")
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
 	MANAGER.add_fish(self)
 	screen_size = get_viewport_rect().size
 	global_position = screen_size / 2
-	wandering_target = Vector2(randi() % int(screen_size.x), randi() % int(screen_size.y))
+	wandering_target = Vector2(randi() % int(screen_size.x + 200), randi() % int(screen_size.y))
 	add_timer_for_hunger()
 
 
@@ -42,7 +43,7 @@ func _physics_process(_delta):
 
 	# Wandering
 	if global_position.distance_to(wandering_target) < 10:
-		wandering_target = Vector2(randi() % int(screen_size.x), randi() % int(screen_size.y))
+		wandering_target = Vector2(randi() % int(screen_size.x + 200), randi() % int(screen_size.y))
 	velocity = (wandering_target - global_position).normalized() * speed
 
 	move_and_slide()
@@ -67,10 +68,6 @@ func increase_hunger():
 		food_target = MANAGER.get_closest_food(self)
 	if hunger > 100:
 		hunger = 100
-
-
-func eat():
-	hunger = 0
 
 
 func remove_fish():
