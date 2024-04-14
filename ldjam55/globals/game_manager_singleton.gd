@@ -22,7 +22,7 @@ var FISH_TO_BUY = [
 var PLANTS_TO_BUY = [
 	{"name": "The Sun", "price": 5, "node_path": "/root/Root/background/root", "available": true, "hide_panel_path": "/root/Root/CanvasLayer/HUD/Panel"},
 	{"name": "a Plant", "price": 5, "node_path": "/root/Root/Plants/Coral1", "available": true},
-	{"name": "a Plant", "price": 10, "node_path": "/root/Root/Plants/Coral2", "available": true},
+	{"name": "a Plant", "price": 15, "node_path": "/root/Root/Plants/Coral2", "available": true},
 	{"name": "a Plant", "price": 20, "node_path": "/root/Root/Plants/Coral3", "available": true},
 	{"name": "a Plant", "price": 40, "node_path": "/root/Root/Plants/Coral4", "available": true},
 	{"name": "a Plant", "price": 80, "node_path": "/root/Root/Plants/Coral5", "available": true},

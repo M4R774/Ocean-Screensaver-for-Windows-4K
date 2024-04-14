@@ -30,6 +30,7 @@ window/size/viewport_width=1066
 window/size/viewport_height=600
 window/size/mode=4
 window/size/initial_position_type=4
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 
 [gui]
