@@ -26,6 +26,11 @@ func _ready():
 		label.text = "Press D to summon " + plant["name"]
 		label.set("theme_override_font_sizes/font_size", 24)
 		add_child(label)
+
+	# TODO: Spend all mana and nutrients to buy stuff
+	
+	
+
 	update_HUD()
 	screen_size = get_viewport_rect().size
 

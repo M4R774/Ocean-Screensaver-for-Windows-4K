@@ -44,6 +44,10 @@ var NUTRIENTS = 0
 var MANA = 10
 
 
+func _ready():
+	load_game_from_disk()
+
+
 func add_fish(fish):
 	FISHES.append(fish)
 	print("Fish added, currently there are ", FISHES.size(), " fishes in the sea.")
@@ -111,24 +115,51 @@ func _input(event):
 			exit_screensaver_gracefully()
 
 
-# TODO: handle mouse movement quit
-
-
 func exit_screensaver_gracefully():
 	save_game()
 	get_tree().quit()
 
 
 func save_game():
-	pass  # TODO
+	# TODO
+	# Myy kaikki kalat, kasvit ja syöttäjät
+	# Iterate over items
+	for item in ITEMS_TO_BUY:
+		if item["available"] == false:
+			NUTRIENTS += item["price"]
 	
-	#var save_game = File.new()
-	#save_game.open("user://savegame.save", File.WRITE)
-	#var save_data = {
-	#	"fishes": FISHES,
-	#	"food": FOOD,
-	#	"nutrients": NUTRIENTS,
-	#	"mana": MANA
-	#}
-	#save_game.store_line(to_json(save_data))
-	#save_game.close()
+	# Iterate over plants
+	for plant in PLANTS_TO_BUY:
+		if plant["available"] == false:
+			NUTRIENTS += plant["price"]
+
+	# Iterate over fish
+	for fish in FISH_TO_BUY:
+		if fish["available"] == false:
+			MANA += fish["price"]
+
+	var mana_file = FileAccess.open("user://mana.save", FileAccess.WRITE)
+	var nutrients_file = FileAccess.open("user://nutrients.save", FileAccess.WRITE)
+	mana_file.store_var(MANA, true)
+	nutrients_file.store_var(NUTRIENTS, true)
+
+
+func load_game_from_disk():
+	# Mana
+	if not FileAccess.file_exists("user://mana.save"):
+		return # Error! We don't have a save to load.
+	var mana_file = FileAccess.open("user://mana.save", FileAccess.READ)
+	MANA = mana_file.get_var(true)
+
+	# Nutrients
+	if not FileAccess.file_exists("user://nutrients.save"):
+		return
+	var nutrients_file = FileAccess.open("user://nutrients.save", FileAccess.READ)
+	NUTRIENTS = nutrients_file.get_var(true)
+
+
+func reset_game():
+	pass
+	# TODO: Lisää keybinding
+	# TODO: Tuhoa tiedosto
+	# TODO: Käynnistä peli uudelleen
