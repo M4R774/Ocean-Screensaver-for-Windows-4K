@@ -203,6 +203,7 @@ texture = ExtResource("13_jh81q")
 script = ExtResource("16_7lul7")
 
 [node name="Coral1" type="Sprite2D" parent="Plants"]
+visible = false
 position = Vector2(464.31, 560.688)
 scale = Vector2(0.383064, 0.383064)
 texture = ExtResource("14_se47p")

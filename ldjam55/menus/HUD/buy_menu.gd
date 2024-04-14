@@ -116,7 +116,7 @@ func try_buying_fish(fish):
 		fish["available"] = false
 		var new_fish = fish["scene"].instantiate()
 		screen_size = get_viewport_rect().size
-		get_node("/root").add_child.call_deferred(new_fish)
+		get_node("/root/Root").add_child.call_deferred(new_fish)
 
 
 func handle_buying_plant():

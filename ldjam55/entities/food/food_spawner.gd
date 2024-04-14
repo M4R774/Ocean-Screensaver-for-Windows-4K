@@ -38,4 +38,4 @@ func spawn_food():
 	screen_size = get_viewport_rect().size
 	var food = food_prefab.instantiate()
 	food.position = Vector2(randi() % int(screen_size.x) + global_position.x, 0)
-	get_node("/root").add_child(food)
+	get_node("/root/Root").add_child(food)

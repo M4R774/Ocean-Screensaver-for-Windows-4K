@@ -6,7 +6,7 @@ var MANAGER: GAME_MANAGER
 var wandering_target: Vector2 = Vector2(0, 0)
 var food_target: Node2D
 var screen_size = Vector2(0, 0)
-var hunger = 20
+var hunger = 85
 var max_hunger = 200
 var hunger_timer: Timer
 var animated_sprite: AnimatedSprite2D
@@ -34,7 +34,7 @@ func _physics_process(_delta):
 		if global_position.distance_to(food_target.global_position) < 30:
 			food_target.remove()
 			food_target = null
-			hunger -= 40
+			hunger -= 20
 			MANAGER.add_nutrients(1)
 			return
 		velocity = (food_target.global_position - global_position).normalized() * speed * 3

@@ -14,26 +14,26 @@ var ITEMS_TO_BUY = [
 
 var FISH_TO_BUY = [
 	{"name": "a Fish", "price": 10, "scene": kala_1, "available": true},
-	{"name": "a Fish", "price": 120, "scene": kala_1, "available": true},
-	{"name": "a Fish", "price": 500, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 600, "scene": kala_1, "available": true},
+	{"name": "a Fish", "price": 1000, "scene": kala_2, "available": true},
 	{"name": "a Fish", "price": 1000, "scene": kala_2, "available": true},
 ]
 
 var PLANTS_TO_BUY = [
 	{"name": "The Sun", "price": 5, "node_path": "/root/Root/background/root", "available": true, "hide_panel_path": "/root/Root/CanvasLayer/HUD/Panel"},
 	{"name": "a Plant", "price": 5, "node_path": "/root/Root/Plants/Coral1", "available": true},
-	{"name": "a Plant", "price": 20, "node_path": "/root/Root/Plants/Coral2", "available": true},
-	{"name": "a Plant", "price": 40, "node_path": "/root/Root/Plants/Coral3", "available": true},
-	{"name": "a Plant", "price": 80, "node_path": "/root/Root/Plants/Coral4", "available": true},
-	{"name": "a Plant", "price": 160, "node_path": "/root/Root/Plants/Coral5", "available": true},
-	{"name": "a Plant", "price": 320, "node_path": "/root/Root/Plants/Coral6", "available": true},
-	{"name": "a Plant", "price": 640, "node_path": "/root/Root/Plants/Coral7", "available": true},
-	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral9", "available": true},
-	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral10", "available": true},
-	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral11", "available": true},
-	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral12", "available": true},
-	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral13", "available": true},
-	{"name": "a Plant", "price": 1000, "node_path": "/root/Root/Plants/Coral19", "available": true},
+	{"name": "a Plant", "price": 10, "node_path": "/root/Root/Plants/Coral2", "available": true},
+	{"name": "a Plant", "price": 20, "node_path": "/root/Root/Plants/Coral3", "available": true},
+	{"name": "a Plant", "price": 40, "node_path": "/root/Root/Plants/Coral4", "available": true},
+	{"name": "a Plant", "price": 80, "node_path": "/root/Root/Plants/Coral5", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral6", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral7", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral9", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral10", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral11", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral12", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral13", "available": true},
+	{"name": "a Plant", "price": 100, "node_path": "/root/Root/Plants/Coral19", "available": true},
 ]
 
 var FISHES = []
@@ -48,7 +48,7 @@ func _ready():
 
 func add_fish(fish):
 	FISHES.append(fish)
-	#print("Fish added, currently there are ", FISHES.size(), " fishes in the sea.")
+	print("Fish added, currently there are ", FISHES.size(), " fishes in the sea.")
 
 
 func add_food(food):
@@ -102,6 +102,9 @@ func _notification(what):
 
 
 func _input(event):
+	if Input.is_action_just_pressed("reset"):
+		reset_game()
+		return
 	if event is InputEventKey and event.pressed:
 		if (not Input.is_action_just_pressed("feed") and \
 				not Input.is_action_just_pressed("summon_fish") and \
@@ -157,7 +160,19 @@ func load_game_from_disk():
 
 
 func reset_game():
-	pass
-	# TODO: Lisää keybinding
-	# TODO: Tuhoa tiedosto
-	# TODO: Käynnistä peli uudelleen
+	MANA = 10
+	NUTRIENTS = 0
+	# Iterate over items
+	for item in ITEMS_TO_BUY:
+		item["available"] = true
+
+	# Iterate over plants
+	for plant in PLANTS_TO_BUY:
+		plant["available"] = true
+
+	# Iterate over fish
+	for fish in FISH_TO_BUY:
+		fish["available"] = true
+
+	FISHES.clear()
+	get_tree().reload_current_scene()
