@@ -11,7 +11,7 @@ var screen_size = Vector2(0, 0)
 func _ready():
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
 	var timer = Timer.new()
-	timer.wait_time = 17
+	timer.wait_time = 25
 	timer.autostart = true
 	timer.one_shot = false
 	timer.connect("timeout", _on_timer_timeout)

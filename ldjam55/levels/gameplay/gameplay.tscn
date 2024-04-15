@@ -145,6 +145,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="CanvasLayer/HUD"]
+self_modulate = Color(1, 1, 1, 0.733333)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,7 +287,8 @@ material = SubResource("ShaderMaterial_dnb2p")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
 offset_right = 243.0
-offset_bottom = 64.0
+offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
