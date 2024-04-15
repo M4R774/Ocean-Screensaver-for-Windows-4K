@@ -2,6 +2,8 @@
 
 The rumors of screensavers’ demise are greatly exaggerated. Ocean Screensaver for Windows 4K 2024 offers a fresh screensaver experience to liven up your computer with colorful, playful fish. Immerse yourself in a vibrant tribute to the classic screensaver era with an interactive twist. As you accumulate mana over time, you can summon more life into the underwater world. It’s a screensaver that evolves as you watch.
 
+![Screenshot of the screensaver. Beautiful ocean view with colorful fish.](screenshot3.png)
+
 ## Controls
 
 Esc: Exit screensaver
