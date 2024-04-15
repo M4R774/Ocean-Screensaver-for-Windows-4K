@@ -132,7 +132,6 @@ position_smoothing_speed = 1.0
 script = ExtResource("1_vqujo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
 z_index = 2
