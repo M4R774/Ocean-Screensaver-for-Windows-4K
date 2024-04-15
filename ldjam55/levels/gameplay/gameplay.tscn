@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://bxat161gi2b7e"]
 
-[ext_resource type="Script" path="res://levels/gameplay/window_manager.gd" id="1_5en8h"]
+[ext_resource type="Script" path="res://globals/window_manager.gd" id="1_lprv6"]
 [ext_resource type="Script" path="res://levels/gameplay/camera.gd" id="1_vqujo"]
 [ext_resource type="Texture2D" uid="uid://cdti3sds7xbht" path="res://levels/gameplay/water.png" id="2_2y8oe"]
 [ext_resource type="Texture2D" uid="uid://chtcct5c6fhde" path="res://levels/gameplay/bg1.png" id="2_fjhtv"]
@@ -86,7 +86,7 @@ shader_parameter/BIAS = 0.0
 shader_parameter/noise = SubResource("NoiseTexture2D_ewasq")
 
 [node name="Root" type="Node"]
-script = ExtResource("1_5en8h")
+script = ExtResource("1_lprv6")
 
 [node name="background" type="Node2D" parent="."]
 scale = Vector2(0.3, 0.3)
@@ -132,6 +132,7 @@ position_smoothing_speed = 1.0
 script = ExtResource("1_vqujo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
 z_index = 2

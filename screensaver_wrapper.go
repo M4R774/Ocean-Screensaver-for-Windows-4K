@@ -19,8 +19,7 @@ func main() {
 	pwd := filepath.Dir(ex)
 
 	// Specify the path to your Godot game executable
-	gamePath := pwd + "/ldjam55.exe" // TODO!!
-
+	gamePath := pwd + "/game.exe"
 	// Get the absolute path of the game executable
 	absGamePath, err := filepath.Abs(gamePath)
 	if err != nil {

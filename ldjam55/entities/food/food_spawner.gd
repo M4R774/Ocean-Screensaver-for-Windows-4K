@@ -1,7 +1,7 @@
 extends Node2D
 
 var MANAGER: GAME_MANAGER
-# TODO: food_prefab varieties
+
 @export var food_prefab: PackedScene = preload("res://entities/food/food.tscn")
 @export var index = 0
 
@@ -11,7 +11,7 @@ var screen_size = Vector2(0, 0)
 func _ready():
 	MANAGER = get_node("/root/GAME_MANAGER_SINGLETON")
 	var timer = Timer.new()
-	timer.wait_time = 15
+	timer.wait_time = 17
 	timer.autostart = true
 	timer.one_shot = false
 	timer.connect("timeout", _on_timer_timeout)
