@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crc4wlwnivxf8"
-path="res://.godot/imported/fish1_spritesheet.png-8a7c7cacaab7c2d93763babd35609bd8.ctex"
+uid="uid://c5hvnj624r3wn"
+path="res://.godot/imported/valkokala1.png-8cecbee228ae4727a2d949863c20df7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/kalat/kala_1/fish1_spritesheet.png"
-dest_files=["res://.godot/imported/fish1_spritesheet.png-8a7c7cacaab7c2d93763babd35609bd8.ctex"]
+source_file="res://entities/kalat/kala_4/valkokala1.png"
+dest_files=["res://.godot/imported/valkokala1.png-8cecbee228ae4727a2d949863c20df7e.ctex"]
 
 [params]
 

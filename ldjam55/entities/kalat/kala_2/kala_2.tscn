@@ -1,17 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://0ty2ade54s3d"]
+[gd_scene load_steps=13 format=3 uid="uid://0ty2ade54s3d"]
 
 [ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_goy4e"]
-[ext_resource type="Texture2D" uid="uid://36l0pvavq3pr" path="res://entities/kalat/kala_2/kala1.png" id="2_t780c"]
-[ext_resource type="Texture2D" uid="uid://oc3xwv6svr" path="res://entities/kalat/kala_2/kala2.png" id="3_51yjh"]
-[ext_resource type="Texture2D" uid="uid://cv60e4y2ovwiw" path="res://entities/kalat/kala_2/kala3.png" id="4_6hmw7"]
-[ext_resource type="Texture2D" uid="uid://cau3sl4fhvqy7" path="res://entities/kalat/kala_2/kala4.png" id="5_tjq6p"]
-[ext_resource type="Texture2D" uid="uid://br1qgyv4tk4qt" path="res://entities/kalat/kala_2/kala5.png" id="6_8olpp"]
-[ext_resource type="Texture2D" uid="uid://fbrhxjqqtgg6" path="res://entities/kalat/kala_2/kala6.png" id="7_1jumc"]
-[ext_resource type="Texture2D" uid="uid://bjd5p5ahosvv5" path="res://entities/kalat/kala_2/kala7.png" id="8_a0gie"]
-[ext_resource type="Texture2D" uid="uid://bfjrp07b68p57" path="res://entities/kalat/kala_2/kala8.png" id="9_y50wp"]
-[ext_resource type="Texture2D" uid="uid://cx4mhv83fsapq" path="res://entities/kalat/kala_2/kala9.png" id="10_dkovo"]
-[ext_resource type="Texture2D" uid="uid://2aj0c4qmytf1" path="res://entities/kalat/kala_2/kala10.png" id="11_tlona"]
-[ext_resource type="Texture2D" uid="uid://5bkt74v44n7u" path="res://entities/kalat/kala_2/kala11.png" id="12_33tyg"]
+[ext_resource type="Texture2D" uid="uid://ukgaol1neq3u" path="res://entities/kalat/kala_2/kala1.png" id="2_t780c"]
+[ext_resource type="Texture2D" uid="uid://87jkpmmx2js0" path="res://entities/kalat/kala_2/kala2.png" id="3_51yjh"]
+[ext_resource type="Texture2D" uid="uid://d2ja2tkiuqc5a" path="res://entities/kalat/kala_2/kala3.png" id="4_6hmw7"]
+[ext_resource type="Texture2D" uid="uid://cu71lkiqe114y" path="res://entities/kalat/kala_2/kala4.png" id="5_tjq6p"]
+[ext_resource type="Texture2D" uid="uid://be6gxv4hhueyd" path="res://entities/kalat/kala_2/kala5.png" id="6_8olpp"]
+[ext_resource type="Texture2D" uid="uid://cb0p0gs4kkw5s" path="res://entities/kalat/kala_2/kala6.png" id="7_1jumc"]
+[ext_resource type="Texture2D" uid="uid://db5mycalqrek4" path="res://entities/kalat/kala_2/kala7.png" id="8_a0gie"]
+[ext_resource type="Texture2D" uid="uid://p2m3v3skec6g" path="res://entities/kalat/kala_2/kala8.png" id="9_y50wp"]
+[ext_resource type="Texture2D" uid="uid://pk2o1upfevsi" path="res://entities/kalat/kala_2/kala9.png" id="10_dkovo"]
+[ext_resource type="Texture2D" uid="uid://c0pnynla7l178" path="res://entities/kalat/kala_2/kala10.png" id="11_tlona"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xed3x"]
 animations = [{
@@ -45,9 +44,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("11_tlona")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_33tyg")
 }],
 "loop": true,
 "name": &"default",

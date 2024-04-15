@@ -1,18 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8t5kc3rc060n"]
+[gd_scene load_steps=13 format=3 uid="uid://cshc8bnihhdu3"]
 
-[ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_u4h85"]
-[ext_resource type="Texture2D" uid="uid://bulq74qfud5ow" path="res://entities/icon.svg" id="2_1knei"]
+[ext_resource type="Script" path="res://entities/kalat/kala.gd" id="1_v5iiq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_63ulj"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cj2va"]
+load_path = "res://.godot/imported/raitakala1.png-ff75001713330139aa8060af0247ed49.ctex"
 
-[node name="PlaceHolderUkkeli" type="Node2D"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7dxra"]
+load_path = "res://.godot/imported/raitakala2.png-5fd891fd226743db332468dc0786b612.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_irm87"]
+load_path = "res://.godot/imported/raitakala3.png-c1734211388c1751097cfb797a801df6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mn5cq"]
+load_path = "res://.godot/imported/raitakala4.png-a0285c58e719d01918b4c434ab61f73a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w64sp"]
+load_path = "res://.godot/imported/raitakala5.png-9ee9730dc73ff2583514eb932cbcf649.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mvkif"]
+load_path = "res://.godot/imported/raitakala6.png-92179b1345fab2abd612fea1af95a691.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7l337"]
+load_path = "res://.godot/imported/raitakala7.png-07d1e358a12ae1d7661c65948e5f4a4a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iurvg"]
+load_path = "res://.godot/imported/raitakala8.png-22949301ecbb1220e82ccb36668c8919.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1gyu0"]
+load_path = "res://.godot/imported/raitakala9.png-f3355d444d00f9006b6417e7ebcbe364.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4nlr1"]
+load_path = "res://.godot/imported/raitakala10.png-6561b945c942773e287a29a8827ded42.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xed3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_cj2va")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_7dxra")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_irm87")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_mn5cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_w64sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_mvkif")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_7l337")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_iurvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_1gyu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_4nlr1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="kala_1" type="Node2D"]
+z_index = 1
+scale = Vector2(1.2, 1.2)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_u4h85")
-speed = null
+script = ExtResource("1_v5iiq")
+speed = 30
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_63ulj")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_1knei")
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_xed3x")
+autoplay = "default"
+frame_progress = 0.160187

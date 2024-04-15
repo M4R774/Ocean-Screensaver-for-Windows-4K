@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxwabwgfgvk5"
-path="res://.godot/imported/placeholder_fish.jpg-35c514b467fb32f50addadc3f676ab1e.ctex"
+uid="uid://f7hh6rktjecw"
+path="res://.godot/imported/raitakala10.png-6561b945c942773e287a29a8827ded42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/kalat/kala_3/placeholder_fish.jpg"
-dest_files=["res://.godot/imported/placeholder_fish.jpg-35c514b467fb32f50addadc3f676ab1e.ctex"]
+source_file="res://entities/kalat/kala_3/raitakala10.png"
+dest_files=["res://.godot/imported/raitakala10.png-6561b945c942773e287a29a8827ded42.ctex"]
 
 [params]
 

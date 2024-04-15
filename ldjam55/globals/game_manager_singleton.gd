@@ -5,6 +5,7 @@ class_name GAME_MANAGER
 var kala_1: PackedScene = preload("res://entities/kalat/kala_1/kala_1.tscn")
 var kala_2: PackedScene = preload("res://entities/kalat/kala_2/kala_2.tscn")
 var kala_3: PackedScene = preload("res://entities/kalat/kala_3/kala_3.tscn")
+var kala_4: PackedScene = preload("res://entities/kalat/kala_4/kala_4.tscn")
 
 var ITEMS_TO_BUY = [
 	{"name": "An Automatic Food Summoner", "price": 10, "available": true},
@@ -17,6 +18,14 @@ var FISH_TO_BUY = [
 	{"name": "a Fish", "price": 600, "scene": kala_1, "available": true},
 	{"name": "a Fish", "price": 1000, "scene": kala_2, "available": true},
 	{"name": "a Fish", "price": 1000, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 2000, "scene": kala_3, "available": true},
+	{"name": "a Fish", "price": 5000, "scene": kala_1, "available": true},
+	{"name": "a Fish", "price": 10000, "scene": kala_2, "available": true},
+	{"name": "a Fish", "price": 10000, "scene": kala_3, "available": true},
+	{"name": "a Fish", "price": 20000, "scene": kala_4, "available": true},
+	{"name": "a Fish", "price": 40000, "scene": kala_4, "available": true},
+	{"name": "a Fish", "price": 40000, "scene": kala_4, "available": true},
+	{"name": "a Fish", "price": 40000, "scene": kala_4, "available": true},
 ]
 
 var PLANTS_TO_BUY = [

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db5mycalqrek4"
-path="res://.godot/imported/kala7.png-731560bcb65b1919d6c7ac8d5cbe9851.ctex"
+uid="uid://d3t3m137edues"
+path="res://.godot/imported/raitakala7.png-07d1e358a12ae1d7661c65948e5f4a4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/kalat/kala_2/kala7.png"
-dest_files=["res://.godot/imported/kala7.png-731560bcb65b1919d6c7ac8d5cbe9851.ctex"]
+source_file="res://entities/kalat/kala_3/raitakala7.png"
+dest_files=["res://.godot/imported/raitakala7.png-07d1e358a12ae1d7661c65948e5f4a4a.ctex"]
 
 [params]
 

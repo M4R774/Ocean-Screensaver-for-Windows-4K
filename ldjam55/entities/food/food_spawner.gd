@@ -19,6 +19,8 @@ func _ready():
 
 
 func _process(_delta):
+	if MANAGER.FOOD.size() == 0 and not MANAGER.ITEMS_TO_BUY[0]["available"]:
+		spawn_food()
 	if Input.is_action_just_pressed("feed"):
 		if index == 0:
 			spawn_food()
@@ -30,7 +32,7 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	if not MANAGER.ITEMS_TO_BUY[index]["available"]:
-		for i in range(1):
+		for i in range(2):
 			spawn_food()
 
 
