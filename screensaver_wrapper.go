@@ -1,14 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
-	"syscall"
-
-	"github.com/postfinance/single"
-	"tawesoft.co.uk/go/dialog"
 )
 
 func main() {
@@ -23,24 +20,17 @@ func main() {
 	// Get the absolute path of the game executable
 	absGamePath, err := filepath.Abs(gamePath)
 	if err != nil {
-		dialog.Alert("Error finding game executable: %v\n", err)
+		fmt.Printf("Error finding game executable: %v\n", err)
+		fmt.Println("Press the Enter Key to exit...")
+		fmt.Scanln() // wait for Enter Key
 		return
-	}
-
-	// create a new lockfile in /var/lock/filename
-	one, err := single.New("single", single.WithLockPath(pwd))
-	if err != nil {
-		dialog.Alert(err.Error())
-	}
-
-	// lock and defer unlocking
-	if err := one.Lock(); err != nil {
-		dialog.Alert(err.Error())
 	}
 
 	// Check if the game executable exists
 	if _, err := os.Stat(absGamePath); os.IsNotExist(err) {
-		dialog.Alert("Game executable not found: " + absGamePath)
+		fmt.Println("Game executable not found: " + absGamePath)
+		fmt.Println("Press the Enter Key to exit...")
+		fmt.Scanln() // wait for Enter Key
 		return
 	}
 
@@ -58,20 +48,15 @@ func main() {
 	case "/p": // Show preview in screensaver selection dialog box
 		return
 	case "/c": // Show screensaver configuration dialog box
-		dialog.Alert("This screensaver has no adjustable settings.")
+		fmt.Println("This screensaver has no adjustable settings.")
+		fmt.Println("Press the Enter Key to exit...")
+		fmt.Scanln() // wait for Enter Key
 		return
 	}
 
 	// Execute the game as a background process
 	cmd := exec.Command(absGamePath)
 
-	// Suppress command window on Windows
-	cmd.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
-
 	_ = cmd.Start()
 	_, _ = cmd.Process.Wait()
-
-	if err := one.Unlock(); err != nil {
-		dialog.Alert(err.Error())
-	}
 }
